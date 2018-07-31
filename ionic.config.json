@@ -1,0 +1,7 @@
+{
+  "name": "qatarzap",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular"
+}

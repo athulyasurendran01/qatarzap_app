@@ -1,0 +1,30 @@
+page-list {
+	.toolbar-background-md {
+    	border-color: white;
+    	background: #412930;
+    }
+    .content-md {
+	    color: white;
+	    background-color: #8D1B3D;
+	}
+	.tab_item{
+		font-size: 22px;
+	}
+	.explore_item{
+	    height: 250px;
+    	text-align: center;
+	}
+	.left{
+		border-right: 8px solid white;
+		border-bottom: 8px solid white;
+		border-top: 8px solid white;
+	}
+	.right{
+		border-left: 8px solid white;
+		border-bottom: 8px solid white;
+		border-top: 8px solid white;
+	}
+	.items_list .col{
+		padding: 5px 0 0 0;
+	}
+}
