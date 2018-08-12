@@ -1,14 +1,11 @@
-page-list {
+leisure-list {
 	.toolbar-background-md {
     	border-color: white;
-    	background: linear-gradient(#392B2F, #672237);
+    	background: #412930;
     }
     .content-md {
 	    color: white;
-	    background: linear-gradient(#4E2733, #8D1B3D);
-	}
-	ion-header{
-		background-image: none !important;
+	    background-color: #8D1B3D;
 	}
 	.tab_item{
 		font-size: 22px;
@@ -19,10 +16,7 @@ page-list {
     	padding: 4em;
 	}
 	.explore_item span{
-		font-size: 28px;
-	}
-	.explore_item ion-icon{
-	    font-size: 74px;
+		font-size: 22px;
 	}
 	.left{
 		border-right: 8px solid white;
@@ -39,11 +33,8 @@ page-list {
 		padding: 0;
 	}
 	.tab_title{
-	    padding: 2em 0;
+	    padding: 2em;
     	margin-bottom: 1em;
-	}
-	.tab_title ion-col{
-	    text-align: center;
 	}
 	ion-footer{
 	    background: black;
@@ -55,9 +46,5 @@ page-list {
 	}
 	.footer_class{
 	    padding: 0 16px;
-	}
-	.active{
-		border-bottom: 3px solid;
-		cursor: pointer;
 	}
 }

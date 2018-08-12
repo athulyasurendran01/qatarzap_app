@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { LoginPage } from '../login/login';
-import { HomePage } from '../home/home';
+import { ImageListPage } from '../image_list/image_list';
+import { Leisure } from '../leisure/leisure';
 
 @Component({
   selector: 'page-list',
@@ -10,11 +10,13 @@ import { HomePage } from '../home/home';
 })
 export class ListPage {
 
-  tab1Root = HomePage;
-  tab2Root = LoginPage;
-  tab3Root = HomePage;
-
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     
+  }
+  gotoSecondTab(){
+	this.navCtrl.push(ImageListPage);
+  }
+  gotoThirdTab(){
+  	this.navCtrl.push(Leisure);
   }
 }

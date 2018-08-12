@@ -1,9 +1,28 @@
 page-home {
 	.content-md {
 	    color: white;
-	    background-color: #512633;
+	    background: linear-gradient(#302D2D, #8C1B3D);
 	}
 	.scroll-content {
-    	padding: 20% !important;
+	    margin: 10% auto 0px auto;
+	    width: 50%;
+	    overflow: hidden;
+	}
+	h3{
+		font-size: 36px;
+	    font-weight: 400;
+	    line-height: 50px;
+	    margin-bottom: 1em;
+	}
+	.home_btn{
+		height: 84px;
+	    background: #2D2D2D;
+	    font-size: 28px;
+	    font-weight: 400;
+	    text-transform: unset;
+		margin-top: 1em;
+	}
+	.home_btn:hover{
+		background-color: #222 !important;
 	}
 }

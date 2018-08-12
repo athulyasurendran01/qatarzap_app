@@ -1,17 +1,13 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { ListPage } from '../list/list';
 
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html'
+  selector: 'image-list',
+  templateUrl: 'image_list.html'
 })
-export class LoginPage {
+export class ImageListPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     
-  }
-  gotoListing(){
-  	this.navCtrl.push(ListPage);
   }
 }
