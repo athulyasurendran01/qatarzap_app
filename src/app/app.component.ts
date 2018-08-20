@@ -7,7 +7,14 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { ImageListPage } from '../pages/image_list/image_list';
 import { Leisure } from '../pages/leisure/leisure';
+import { QatarPage } from '../pages/qatar/qatar';
+import { Explore } from '../pages/explore/explore';
 import { LoginPage } from '../pages/login/login';
+import { CategoryPage } from '../pages/categories/category';
+import { CategoryDetailPage } from '../pages/category-detail/category-detail';
+import { MapPage } from '../pages/map/map';
+import { NewsBlog } from '../pages/news-blog/news-blog';
+import { NewsDetail } from '../pages/news-detail/news-detail';
 
 @Component({
   templateUrl: 'app.html'
@@ -28,7 +35,15 @@ export class MyApp {
       { title: 'List', component: ListPage },
       { title: 'ImageListPage', component: ImageListPage },
       { title: 'Leisure', component: Leisure },
-      { title: 'Login', component: LoginPage }
+      { title: 'Login', component: LoginPage },
+      { title: 'Qatar', component: QatarPage },
+      { title: 'Category', component: CategoryPage },
+      { title: 'CategoryDetail', component: CategoryDetailPage },
+      { title: 'Map', component: MapPage },
+      { title: 'NewsBlog', component: NewsBlog },
+      { title: 'NewsDetail', component: NewsDetail },
+      { title: 'Explore', component: Explore },
+      
     ];
 
   }

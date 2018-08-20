@@ -8,6 +8,13 @@ import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
 import { ImageListPage } from '../pages/image_list/image_list';
 import { Leisure } from '../pages/leisure/leisure';
+import { Explore } from '../pages/explore/explore';
+import { QatarPage } from '../pages/qatar/qatar';
+import { CategoryPage } from '../pages/categories/category';
+import { CategoryDetailPage } from '../pages/category-detail/category-detail';
+import { MapPage } from '../pages/map/map';
+import { NewsBlog } from '../pages/news-blog/news-blog';
+import { NewsDetail } from '../pages/news-detail/news-detail';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -19,11 +26,18 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListPage,
     LoginPage,
     ImageListPage,
-    Leisure
+    Leisure,
+    QatarPage,
+    Explore,
+    CategoryPage,
+    CategoryDetailPage,
+    MapPage,
+    NewsBlog,
+    NewsDetail
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {tabsPlacement: 'top'}),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -32,7 +46,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ListPage,
     LoginPage,
     ImageListPage,
-    Leisure
+    Leisure,
+    QatarPage,
+    Explore,
+    CategoryPage,
+    CategoryDetailPage,
+    MapPage,
+    NewsBlog,
+    NewsDetail
   ],
   providers: [
     StatusBar,

@@ -1,0 +1,36 @@
+<!-- <ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>List</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content>
+  <ion-grid>
+    <ion-row class="tab_title">
+      <ion-col col-1>
+        <ion-icon (click)="goToBack()" ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
+      </ion-col>
+      <ion-col>
+        <span>Driving</span>
+      </ion-col>
+      <ion-col>
+        <span>Transit</span>
+      </ion-col>
+      <ion-col>
+        <span>Walking</span>
+      </ion-col>
+    </ion-row>
+
+    <ion-row class="map_div">
+      <div #map id="map"></div>
+    </ion-row>
+    
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-icon ios="ios-home" md="md-home"></ion-icon><span class="footer_class">Discover</span>
+</ion-footer>

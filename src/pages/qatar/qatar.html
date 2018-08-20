@@ -1,0 +1,114 @@
+
+  <ion-grid>
+    <ion-row class="second_tab">
+      <ion-col (click)="activeHistory()" [ngClass]="(history)?'active':''">
+        <span>Qatar History</span>
+      </ion-col>
+      <ion-col (click)="activeDevelopment()" [ngClass]="(development)?'active':''">
+        <span>Qatar Development</span>
+      </ion-col>
+      <ion-col (click)="activePolitics()" [ngClass]="(politics)?'active':''">
+        <span class="">Qatar Politics</span>
+      </ion-col>
+    </ion-row>
+    
+    <div class="history_content" *ngIf="history">
+      <h3>Qatar History</h3>
+      <img src="./assets/imgs/guppi6.jpg"/>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonum-
+        my nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+        Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper sus-
+        cipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel
+
+        eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,
+        vel illum dolore eu feugiat nulla facilisis at vero Lorem ipsum dolor sit
+
+        amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tinci-
+        dunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+
+        minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis ut
+
+        conseautem vel mofacilisisconseautem vel Lorem ipsum dolor sit amet,
+        consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim
+        veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+
+        aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hen-
+        drerit in vulputate velit esse molestie consequat, vel illum dolore eu feu-
+        giat nulla facilisis at vero Lorem ipsum dolor sit amet, consectetuer adipisc-
+        ing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+
+        magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+
+        magna aliquam erat volutpat. Utwisi enim ad minim veniam, quis nostrud-
+        conseautem vel mofacilisisconseautem vel Lorem ipsum dolor sit amet,</p>
+    </div>
+
+    <div class="development_content" *ngIf="development">
+      <h3>Qatar Development</h3>
+      <img src="./assets/imgs/guppi6.jpg"/>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonum-
+        my nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+        Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper sus-
+        cipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel
+
+        eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,
+        vel illum dolore eu feugiat nulla facilisis at vero Lorem ipsum dolor sit
+
+        amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tinci-
+        dunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+
+        minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis ut
+
+        conseautem vel mofacilisisconseautem vel Lorem ipsum dolor sit amet,
+        consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim
+        veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+
+        aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hen-
+        drerit in vulputate velit esse molestie consequat, vel illum dolore eu feu-
+        giat nulla facilisis at vero Lorem ipsum dolor sit amet, consectetuer adipisc-
+        ing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+
+        magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+
+        magna aliquam erat volutpat. Utwisi enim ad minim veniam, quis nostrud-
+        conseautem vel mofacilisisconseautem vel Lorem ipsum dolor sit amet,</p>
+    </div>
+
+    <div class="politics_content" *ngIf="politics">
+      <h3>Qatar Politics</h3>
+      <img src="./assets/imgs/guppi6.jpg"/>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonum-
+        my nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+
+        Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper sus-
+        cipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel
+
+        eum iriure dolor in hendrerit in vulputate velit esse molestie consequat,
+        vel illum dolore eu feugiat nulla facilisis at vero Lorem ipsum dolor sit
+
+        amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tinci-
+        dunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
+
+        minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis ut
+
+        conseautem vel mofacilisisconseautem vel Lorem ipsum dolor sit amet,
+        consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim
+        veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut
+
+        aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hen-
+        drerit in vulputate velit esse molestie consequat, vel illum dolore eu feu-
+        giat nulla facilisis at vero Lorem ipsum dolor sit amet, consectetuer adipisc-
+        ing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore
+
+        magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud
+
+        magna aliquam erat volutpat. Utwisi enim ad minim veniam, quis nostrud-
+        conseautem vel mofacilisisconseautem vel Lorem ipsum dolor sit amet,</p>
+    </div>
+
+  </ion-grid>

@@ -1,0 +1,56 @@
+<!-- <ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>List</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content>
+  <ion-grid class="main_tab">
+    <ion-row>
+      <ion-col class="more_option">
+          <div (click)="getBlog()">
+            <ion-icon ios="ios-more" md="md-more"></ion-icon>
+            <span>More</span>
+          </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="second_tab">
+      <ion-col (click)="activeNews()" [ngClass]="(news)?'active':''">
+        <span>News</span>
+      </ion-col>
+      <ion-col (click)="activeBlog()" [ngClass]="(blog)?'active':''">
+        <span>Blog</span>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+    <ion-grid>
+    <div class="news_content" *ngIf="news">
+      <ion-row>
+        <ion-col col-6>
+          <div (click)="newsDetail()" class="left"><span>Latest News</span></div>
+        </ion-col>
+        <ion-col col-6>
+          <div class="right"><span>Local News</span></div>
+        </ion-col>
+        <ion-col>
+          <div class="left"><span>Sports</span></div>
+        </ion-col>
+        <ion-col>
+          <div class="right"><span>Weather</span></div>
+        </ion-col>
+      </ion-row>
+    </div>
+
+    <div class="blog_content" *ngIf="blog">
+      <img src="./assets/imgs/guppi6.jpg"/>
+    </div>
+
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-icon ios="ios-home" md="md-home"></ion-icon><span class="footer_class">Discover</span>
+</ion-footer>

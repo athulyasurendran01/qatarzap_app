@@ -1,49 +1,37 @@
-<!-- <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>List</ion-title>
-  </ion-navbar>
-</ion-header> -->
 
-<ion-content>
-  <ion-grid>
-    <ion-row class="tab_title">
-      <ion-col>
-        <span class="tab_item active">Explore</span>
-      </ion-col>
-      <ion-col>
-        <span class="tab_item" (click)="gotoSecondTab()">Where to go?</span>
-      </ion-col>
-      <ion-col>
-        <span class="tab_item" (click)="gotoThirdTab()">Leisure</span>
-      </ion-col>
-      <ion-col>
-        <span class="tab_item">Qatar</span>
+ <ion-content>
+  <ion-grid class="main_tab"> 
+    <ion-row>
+      <ion-col class="more_option">
+          <span (click)="goToMore()">
+            <ion-icon ios="ios-more" md="md-more"></ion-icon>
+            <span>More</span>
+          </span>
+            <ion-icon class="search_icon" ios="ios-search" md="md-search"></ion-icon>
       </ion-col>
     </ion-row>
-
-    <ion-row class="items_list">
-      <ion-col>
-        <div class="explore_item left"><span>Shop</span><br/><br/><ion-icon name="cart"></ion-icon></div>
-      </ion-col>
-      <ion-col>
-        <div class="explore_item right"><span>Eat</span><br/><br/><ion-icon ios="ios-restaurant" md="md-restaurant"></ion-icon></div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row class="items_list">
-      <ion-col>
-        <div class="explore_item left"><span>Stay</span><br/><br/><ion-icon ios="ios-home" md="md-home"></ion-icon></div>
-      </ion-col>
-      <ion-col>
-        <div class="explore_item right"><span>Visit</span><br/><br/><ion-icon ios="ios-home" md="md-home"></ion-icon></div>
-      </ion-col>
+    <ion-row>
+        <ion-col col-3 (click)="activeExplore()" [ngClass]="(explore)?'active':''">
+          <span>Explore</span>
+        </ion-col>
+        <ion-col col-4 (click)="activeWhereToGo()" [ngClass]="(where_to_go)?'active':''">
+          <span>Where to go?</span>
+        </ion-col>
+        <ion-col col-3 (click)="activeLeisure()" [ngClass]="(leisure)?'active':''">
+          <span class="">Leisure</span>
+        </ion-col>
+        <ion-col col-2 (click)="activeQatar()" [ngClass]="(qatar)?'active':''">
+          <span class="">Qatar</span>
+        </ion-col>
     </ion-row>
   </ion-grid>
-</ion-content>
+  
+    <explore-list *ngIf="explore"></explore-list>
+    <image-list *ngIf="where_to_go"></image-list>
+    <leisure-list *ngIf="leisure"></leisure-list>
+    <qatar-list *ngIf="qatar"></qatar-list>
 
+</ion-content> 
 <ion-footer>
   <ion-icon ios="ios-home" md="md-home"></ion-icon><span class="footer_class">Discover</span>
 </ion-footer>
