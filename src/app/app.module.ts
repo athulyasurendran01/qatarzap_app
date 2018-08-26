@@ -15,6 +15,8 @@ import { CategoryDetailPage } from '../pages/category-detail/category-detail';
 import { MapPage } from '../pages/map/map';
 import { NewsBlog } from '../pages/news-blog/news-blog';
 import { NewsDetail } from '../pages/news-detail/news-detail';
+import { NewsMorePage } from '../pages/news-detail-more/news-detail-more';
+import { BlogDetailPage } from '../pages/blog-detail/blog-detail';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -33,7 +35,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     CategoryDetailPage,
     MapPage,
     NewsBlog,
-    NewsDetail
+    NewsDetail,
+    NewsMorePage,
+    BlogDetailPage
   ],
   imports: [
     BrowserModule,
@@ -53,7 +57,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     CategoryDetailPage,
     MapPage,
     NewsBlog,
-    NewsDetail
+    NewsDetail,
+    NewsMorePage,
+    BlogDetailPage
   ],
   providers: [
     StatusBar,

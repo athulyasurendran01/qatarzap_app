@@ -8,12 +8,12 @@ category-detail-list {
 		background-image: none !important;
 	}
 	.tab_item{
-		font-size: 22px;
+		font-size: 15px;
 	}
 
 	
 	.category_details{
-		padding: 0 2em;
+		padding: 0 1em;
 
 		img{
 			width: 100%;
@@ -21,6 +21,9 @@ category-detail-list {
 		.details{
 			h2{
 			    font-weight: bolder;
+			}
+			h3{
+			    font-size: 16px;
 			}
 		}
 		.direction_icon{
@@ -36,6 +39,7 @@ category-detail-list {
 		    font-size: 16px;
     		line-height: 20px;
     		text-align: justify;
+			margin-top: 2px;
 		}
 	}
 
@@ -48,15 +52,14 @@ category-detail-list {
 	.facilities{
 		div{
 			display: inline-flex;
-			padding: 1em 0;
 		}
 		ion-icon{
-			font-size: 40px;
+			font-size: 30px;
     		padding-right: 0.5em;
 		}
 		span{
-		    line-height: 37px;
-    		font-size: 22px;
+		    line-height: 24px;
+    		font-size: 16px;
 		}
 	}
 	.items_list .col{
@@ -66,7 +69,7 @@ category-detail-list {
 		padding: 0;
 	}
 	.tab_title{
-	    padding: 2em 0;
+	    padding: 3em 0 0;
     	color:white;
     	background: linear-gradient(#392B2F, #672237);
 	}

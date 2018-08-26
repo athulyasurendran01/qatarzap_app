@@ -19,10 +19,10 @@
     </ion-row>
     <ion-row class="second_tab">
       <ion-col (click)="activeNews()" [ngClass]="(news)?'active':''">
-        <span>News</span>
+        <span>NEWS</span>
       </ion-col>
       <ion-col (click)="activeBlog()" [ngClass]="(blog)?'active':''">
-        <span>Blog</span>
+        <span>BLOGS</span>
       </ion-col>
     </ion-row>
     </ion-grid>
@@ -45,7 +45,60 @@
     </div>
 
     <div class="blog_content" *ngIf="blog">
-      <img src="./assets/imgs/guppi6.jpg"/>
+      <ion-row>
+        <ion-col>
+          <div class="left">
+            <div class="absolute_div">dd/mm/yy</div>
+            <div class="content">
+              <h4>Lorem ipsum</h4>
+              <h5>dd/mm/yy
+              Lorem ipsum dolor
+              sit amet, conLorem
+              ipsum dolor sit
+              amet, con</h5>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col>
+          <img src="./assets/imgs/guppi6.jpg"/>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class="left">
+            <div class="absolute_div">dd/mm/yy</div>
+            <div class="content">
+              <h4>Lorem ipsum</h4>
+              <h5>dd/mm/yy
+              Lorem ipsum dolor
+              sit amet, conLorem
+              ipsum dolor sit
+              amet, con</h5>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col>
+          <img src="./assets/imgs/guppi6.jpg"/>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <div class="left">
+            <div class="absolute_div">dd/mm/yy</div>
+            <div class="content">
+              <h4>Lorem ipsum</h4>
+              <h5>dd/mm/yy
+              Lorem ipsum dolor
+              sit amet, conLorem
+              ipsum dolor sit
+              amet, con</h5>
+            </div>
+          </div>
+        </ion-col>
+        <ion-col>
+          <img src="./assets/imgs/guppi6.jpg"/>
+        </ion-col>
+      </ion-row>
     </div>
 
   </ion-grid>

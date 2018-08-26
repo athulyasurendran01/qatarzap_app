@@ -11,7 +11,7 @@ news-detail-list {
 		padding: 0;
 	}
 	.tab_title{
-	    padding: 2em 0;
+	    padding: 1em 0;
     	color:white;
     	background: linear-gradient(#392B2F, #672237);
     	h2{
@@ -26,7 +26,7 @@ news-detail-list {
     		font-size: 16px;
 		}
 		h2{
-			font-size: 32px;
+			font-size: 22px;
     		font-weight: bold;
 			margin-top: 0;
 		}
@@ -41,8 +41,7 @@ news-detail-list {
 		.main_head{
 			border-bottom: 2px solid #484545;
 			.col{
-			    padding: 1em;
-				padding-top: 2em;
+				padding-top: 1em;
 			}
 		}
 	}
@@ -51,7 +50,7 @@ news-detail-list {
 	    border-bottom: 2px solid #484545;
 		.col{
 		    padding: 1em;
-    		padding-top: 2em;
+    		padding-top: 1em;
 		}
 		h2{
 		    font-size: 22px;

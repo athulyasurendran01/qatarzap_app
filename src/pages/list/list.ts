@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { ImageListPage } from '../image_list/image_list';
-import { Leisure } from '../leisure/leisure';
-import { QatarPage } from '../qatar/qatar';
-import { Explore } from '../explore/explore';
 import { CategoryPage } from '../categories/category';
 
 @IonicPage()
