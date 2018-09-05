@@ -10,49 +10,37 @@
       </ion-col>
     </ion-row>
     <ion-row class="tab_title">
-      <ion-col>
-        <span class="tab_item active">Shop</span>
-      </ion-col>
-      <ion-col>
-        <span class="tab_item">Eat</span>
-      </ion-col>
-      <ion-col>
-        <span class="tab_item">Stay</span>
-      </ion-col>
-      <ion-col>
-        <span class="tab_item">Visit</span>
-      </ion-col>
-      <ion-col>
-        <span class="tab_item">Event</span>
-      </ion-col>
-      <ion-col>
-        <span class="tab_item">Service</span>
-      </ion-col>
-      <ion-col>
-        <span class="tab_item">Travel</span>
+      <ion-col *ngFor="let item of categories">
+        <span class="tab_item" (click)="getList(item.name)">{{item.name}}</span>
       </ion-col>
     </ion-row>
   </ion-grid>
   <ion-grid>
     <ion-row>
-      Dropdown
+      <select>
+        <optgroup>
+          <option>Cat 1</option>
+          <option>Cat 1</option>
+          <option>Cat 1</option>
+          <option>Cat 1</option>
+        </optgroup>
+      </select>
     </ion-row>
 
-    <ion-row class="category_items">
+    <ion-row class="category_items" *ngFor="let result of results">
       <ion-col col-auto>
-        <div class="circle"></div>
+        <div class="circle"><img src="./assets/imgs/guppi6.jpg"></div>
       </ion-col>
       <ion-col>
         <div class="title_desc">
-          <h3 (click)="goToDetail()">The Mall</h3>
-          <h4>D-Ring Road - Mall intersection, opposite to
-            Al-Ahly Club P.O. 22544 - Doha, Qatar</h4>
+          <h3 (click)="goToDetail(result.id)">{{result.title}}</h3>
+          <h4>{{result.location}}</h4>
         </div>
         <div class="arraow_location" (click)="goToMap()"><ion-icon ios="ios-navigate" md="md-navigate"></ion-icon></div>
       </ion-col>
     </ion-row>
 
-    <ion-row class="category_items">
+    <!-- <ion-row class="category_items">
       <ion-col col-auto>
         <div class="circle"></div>
       </ion-col>
@@ -106,7 +94,7 @@
         </div>
         <div class="arraow_location"><ion-icon ios="ios-navigate" md="md-navigate"></ion-icon></div>
       </ion-col>
-    </ion-row>
+    </ion-row> -->
     
   </ion-grid>
 </ion-content>

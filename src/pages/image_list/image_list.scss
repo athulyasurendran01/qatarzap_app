@@ -10,22 +10,27 @@ image-list {
 	.tab_item{
 		font-size: 22px;
 	}
-	.explore_item{
-	    height: 250px;
-    	text-align: center;
-    	padding: 4em;
+	.image_item{
+	    height: 200px;
     	background-image: url("../assets/imgs/guppi6.jpg");
     	background-repeat: round;
 	}
-	.explore_item span{
-		font-size: 22px;
+	.image_item span{
+		font-size: 18px;
+		background: rgba(255, 255, 255, 0.25);
+	    width: 100%;
+	    position: absolute;
+	    height: 100%;
+	    text-align: center;
+		padding: 4em 0;
+    	color: black;
 	}
 	.left{
-		border-right: 8px solid white;
+		border-right: 4px solid white !important;
 		border-bottom: 16px solid white;
 	}
 	.right{
-		border-left: 8px solid white;
+		border-left: 4px solid white !important;
 		border-bottom: 16px solid white;
 	}
 	.items_list .col{

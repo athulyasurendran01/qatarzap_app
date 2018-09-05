@@ -1,28 +1,10 @@
 
   <ion-grid>
     <ion-row class="items_list">
-      <ion-col>
-        <div class="explore_item left"><span>Image 1</span></div>
-      </ion-col>
-      <ion-col>
-        <div class="explore_item right"><span>Image 2</span></div>
-      </ion-col>
-    </ion-row>
+      <ion-col col-6 *ngFor="let item of items; let i = index">
+        <div *ngIf="i % 2 === 0" class="image_item left"><span>{{item.name}}</span></div>
 
-    <ion-row class="items_list">
-      <ion-col>
-        <div class="explore_item left"><span>Image 3</span></div>
-      </ion-col>
-      <ion-col>
-        <div class="explore_item right"><span>Image 4</span></div>
-      </ion-col>
-    </ion-row>
-    <ion-row class="items_list">
-      <ion-col>
-        <div class="explore_item left"><span>Image 3</span></div>
-      </ion-col>
-      <ion-col>
-        <div class="explore_item right"><span>Image 4</span></div>
+        <div *ngIf="i % 2 != 0" class="image_item right"><span>{{item.name}}</span></div>
       </ion-col>
     </ion-row>
   </ion-grid>

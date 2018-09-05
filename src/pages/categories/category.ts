@@ -1,21 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { CategoryDetailPage } from '../category-detail/category-detail';
 import { MapPage } from '../map/map';
 import { NewsBlog } from '../news-blog/news-blog';
+import { UserService } from '../../app/user.service';
 
 @Component({
   selector: 'category-list',
   templateUrl: 'category.html'
 })
-export class CategoryPage {
+export class CategoryPage implements OnInit{
+  
+  results: any;
+  categories: any;
+  category: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    
+  constructor(private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {  }
+
+  ngOnInit() {
+    this.UserService.apiTokenRequestGet('categories', {})
+      .map(res => res.json()).subscribe(data => {
+        //alert(JSON.stringify(data))
+        this.categories = data.data;
+      });
+
+    this.category = this.navParams.get("category") ? this.navParams.get("category") : 'Shop';
+    this.getList(this.category);
   }
 
-  goToDetail(){
-	this.navCtrl.push(CategoryDetailPage);
+  getList(item: string){
+    this.UserService.apiTokenRequestGet('list/'+item, {})
+      .map(res => res.json()).subscribe(data => {
+        this.results = data.data;
+      });
+  }
+  goToDetail(id){
+	this.navCtrl.push(CategoryDetailPage, {
+    category: id
+  });
   }
 
   goToMap(){

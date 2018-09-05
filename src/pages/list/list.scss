@@ -22,23 +22,23 @@ page-list {
 		font-size: 22px;
 	}
 	.explore_item{
-	    height: 250px;
-    	text-align: center;
-    	padding: 4em;
+		height: 188px;
+	    text-align: center;
+	    padding: 3em;
+		border-bottom: 8px solid white;
+		background: #891b3c;
 	}
 	.explore_item span{
-		font-size: 28px;
+		font-size: 22px;
 	}
 	.explore_item ion-icon{
-	    font-size: 74px;
+	    font-size: 64px;
 	}
 	.left{
 		border-right: 8px solid white;
-		border-bottom: 16px solid white;
 	}
 	.right{
 		border-left: 8px solid white;
-		border-bottom: 16px solid white;
 	}
 	.items_list .col{
 		padding: 0;
@@ -56,10 +56,11 @@ page-list {
 	ion-footer{
 	    background: black;
 	    color: white;
-	    font-size: 32px;
+	    font-size: 22px;
 	    text-align: center;
 	    height: 58px;
 	    padding: 7px;
+		line-height: 50px;
 	}
 	.footer_class{
 	    padding: 0 16px;

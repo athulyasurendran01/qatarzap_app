@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { CategoryPage } from '../categories/category';
 
 @IonicPage()
 @Component({
@@ -18,10 +17,6 @@ export class ListPage {
 
     constructor(public navCtrl: NavController, public navParams: NavParams) {
 
-    }
-
-    goToMore(){
-      this.navCtrl.push(CategoryPage);
     }
   
     activeExplore(){
