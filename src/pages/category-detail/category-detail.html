@@ -2,64 +2,35 @@
 <ion-content>
   <ion-grid>
     <ion-row class="tab_title">
-      <ion-col col-1>
-        <ion-icon (click)="goToBack()" ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
-      </ion-col>
-      <ion-col>
-        <span class="tab_item active">Shop</span>
-      </ion-col>
-      <ion-col>
-        <span class="tab_item" (click)="gotoSecondTab()">Eat</span>
-      </ion-col>
-      <ion-col>
-        <span class="tab_item" (click)="gotoThirdTab()">Stay</span>
-      </ion-col>
-      <ion-col>
-        <span class="tab_item">Visit</span>
-      </ion-col>
-      <ion-col>
-        <span class="tab_item">Event</span>
-      </ion-col>
-      <ion-col>
-        <span class="tab_item">Service</span>
-      </ion-col>
-      <ion-col>
-        <span class="tab_item">Travel</span>
+      <ion-col *ngFor="let item of categories">
+        <span class="tab_item" (click)="getList(item.name)">{{item.name}}</span>
       </ion-col>
     </ion-row>
 
-    <ion-row>
-      <img src="./assets/imgs/guppi6.jpg" width="100%" />
+    <ion-row *ngIf="categoryArray">
+      <img src="{{categoryArray.background_image}}" width="100%" height="250px" />
+      <div class="logo">
+        <img src="{{categoryArray.profile_image}}">
+      </div>
     </ion-row>
-    <ion-row class="category_details">
+    <ion-row class="category_details" *ngIf="categoryArray">
       <div class="details">
-        <h2>The Mall</h2>
-        <h3>D-Ring Road - Mall intersection, opposite to
-        Al-Ahly Club P.O. 22544 - Doha, Qatar</h3>
+        <h2>{{categoryArray.title}}</h2>
+        <h3>{{categoryArray.location}}</h3>
       </div>
       <div class="direction_icon"><ion-icon ios="ios-pin" md="md-pin"></ion-icon>
         <h2>Get Direction</h2>
       </div>
       <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        The Mall Shopping Complex, Qatar’s rst shopping mall, was developed by Equinox
-        in 1997. Providing an unparalleled shopping experience for the rst time in Doha, The Mall proved
-        be an instant success. With a homely warm ambiance, The Mall Shopping Complex for almost
-        decades has been providing customers with a wide range of high-quality services and shopping
-        facilities through 80 plus stores with something for every family member.</p>
+        {{categoryArray.description}}</p>
     </ion-row>
 
     <ion-row class="category_details">
       <h2>Our Facilities</h2>
     </ion-row>
     <ion-row class="category_details facilities">
-      <ion-col col-6>
-        <div><ion-icon ios="ios-car" md="md-car"></ion-icon><span>Car Parking</span></div>
-      </ion-col>
-      <ion-col col-6>
-        <div><ion-icon ios="ios-car" md="md-car"></ion-icon><span>Wheelchair accesible</span></div>
-      </ion-col>
-      <ion-col col-6>
-        <div><ion-icon ios="ios-car" md="md-car"></ion-icon><span>Compliment WIFI</span></div>
+      <ion-col col-6 *ngFor="let faci of facilities">
+        <div><ion-icon md="{{faci.icon}}"></ion-icon><span>{{faci.title}}</span></div>
       </ion-col>
     </ion-row>
 
@@ -67,31 +38,23 @@
       <h2>Working Hours</h2>
     </ion-row>
     <ion-row class="category_details">
-      <table class = "table">
-       <thead>
-          <tr>
-             <th>Monday</th>
-             <th>Tuesday</th>
-             <th>Wednesday</th>
-             <th>Thursday</th>
-             <th>Friday</th>
-             <th>Saturday</th>
-             <th>Sunday</th>
-          </tr>
-       </thead>
-       
-       <tbody>
-          <tr>
-             <td>08:00 AM To 05:00 PM</td>
-             <td>08:00 AM To 05:00 PM</td>
-             <td>08:00 AM To 05:00 PM</td>
-             <td>08:00 AM To 05:00 PM</td>
-             <td>08:00 AM To 05:00 PM</td>
-             <td>08:00 AM To 05:00 PM</td>
-             <td>08:00 AM To 05:00 PM</td>
-          </tr>
-       </tbody>
-      </table>
+      <ion-scroll zooming = "true" direction = "xy" style = "width: 320px; height: 160px">
+         <div class = "scroll-container">
+            <table class = "table">
+             <thead>
+                <tr>
+                   <th *ngFor="let day of hours">{{day.day_num}}</th>
+                </tr>
+             </thead>
+             
+             <tbody>
+                <tr>
+                   <td *ngFor="let day of hours">{{day.time}}</td>
+                </tr>
+             </tbody>
+            </table>
+         </div>
+      </ion-scroll>
     </ion-row><br/>
   </ion-grid>
 </ion-content>

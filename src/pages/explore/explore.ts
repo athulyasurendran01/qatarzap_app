@@ -20,7 +20,10 @@ export class Explore implements OnInit{
 	    .map(res => res.json()).subscribe(data => {
 	    	//alert(JSON.stringify(data))
 	    	this.explore_items = data.data;
-	    });
+	    },
+		error => {
+			alert(error);
+	   });
 	}
 
     goToCategory(item){

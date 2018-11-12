@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { UserService } from '../../app/user.service';
+import { CategoryPage } from '../categories/category';
+
 
 @Component({
   selector: 'leisure-list',
@@ -18,6 +20,13 @@ export class Leisure implements OnInit{
 	    	//alert(JSON.stringify(data))
 	    	this.leisure_items = data.data;
 	    });
-	}
+	 }
+
+
+  getList(item: string){
+    this.navCtrl.push(CategoryPage, {
+      category: item
+    });
+  }
 
 }

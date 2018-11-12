@@ -2,7 +2,10 @@ news-detail-more-list {
 	.toolbar-background-md {
     	border-color: white;
     }
-    .content-md {
+    .back_btn{
+		font-size: 25px;
+	    position: absolute;
+	    margin-left: 12px;
 	}
 	ion-header{
 		background-image: none !important;
@@ -17,13 +20,13 @@ news-detail-more-list {
     	h2{
     		text-align: center;
     		width: 100%;
+    		margin: 0;
     	}
 	}
 	h4{
 		text-align: center;
 	    width: 100%;
 	    border-bottom: 2px solid #827878;
-	    margin: 0.6em 4em;
 	    padding-bottom: 12px;
 	}
 	.news_details_content{

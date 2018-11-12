@@ -2,9 +2,15 @@
   <ion-grid>
     <ion-row class="items_list">
       <ion-col col-6 *ngFor="let item of items; let i = index">
-        <div *ngIf="i % 2 === 0" class="image_item left"><span>{{item.name}}</span></div>
+        <div *ngIf="i % 2 === 0" class="image_item left">
+        	<img src="{{item.image}}" height="100%"/>
+        	<span style="top: 0;">{{item.name}}</span>
+        </div>
 
-        <div *ngIf="i % 2 != 0" class="image_item right"><span>{{item.name}}</span></div>
+        <div *ngIf="i % 2 != 0" class="image_item right">
+        	<img src="{{item.image}}" height="100%">
+        	<span style="top: 0;">{{item.name}}</span>
+        </div>
       </ion-col>
     </ion-row>
   </ion-grid>

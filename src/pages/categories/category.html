@@ -17,26 +17,23 @@
   </ion-grid>
   <ion-grid>
     <ion-row>
-      <select>
+      <select placeholder="Choose Category" (change)="categoryOnChange(selectedOption)" [(ngModel)]="selectedOption" >
         <optgroup>
-          <option>Cat 1</option>
-          <option>Cat 1</option>
-          <option>Cat 1</option>
-          <option>Cat 1</option>
+          <option [value]="sub.name" *ngFor="let sub of subCate">{{sub.name}}</option>
         </optgroup>
       </select>
     </ion-row>
 
     <ion-row class="category_items" *ngFor="let result of results">
       <ion-col col-auto>
-        <div class="circle"><img src="./assets/imgs/guppi6.jpg"></div>
+        <div class="circle"><img src="{{result.profile_image}}"></div>
       </ion-col>
       <ion-col>
         <div class="title_desc">
           <h3 (click)="goToDetail(result.id)">{{result.title}}</h3>
           <h4>{{result.location}}</h4>
         </div>
-        <div class="arraow_location" (click)="goToMap()"><ion-icon ios="ios-navigate" md="md-navigate"></ion-icon></div>
+        <div class="arraow_location" (click)="goToMap(result.id)"><ion-icon ios="ios-navigate" md="md-navigate"></ion-icon></div>
       </ion-col>
     </ion-row>
 

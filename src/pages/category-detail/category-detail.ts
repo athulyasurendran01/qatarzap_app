@@ -10,20 +10,36 @@ import { UserService } from '../../app/user.service';
 export class CategoryDetailPage {
 
   category: number;
-  
+  categories: any;
+  categoryArray: any;
+  facilities: any;
+  hours: any;
+
   constructor(private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {
 
-  	this.category = this.navParams.get("category");
+    this.UserService.apiTokenRequestGet('categories', {})
+    .map(res => res.json()).subscribe(data => {
+      //alert(JSON.stringify(data))
+      this.categories = data.data;
+    });
+
+
+  	this.category = this.navParams.get("category"); 
     this.UserService.apiTokenRequestGet('category/'+this.category, {})
       .map(res => res.json()).subscribe(data => {
         //alert(JSON.stringify(data))
-        this.categories = data.data;
+        this.categoryArray = data.data.package;
+        this.facilities = data.data.facilities;
+        this.hours = data.data.working_hours;
       });
-
-    this.category = this.navParams.get("category");
-    this.getList(this.category);
   }
 
+  getList(item: string){
+    this.navCtrl.push(CategoryPage, {
+      category: item
+    });
+  }
+  
   goToBack(){
   	this.navCtrl.push(CategoryPage);
   }

@@ -17,21 +17,22 @@ image-list {
 	}
 	.image_item span{
 		font-size: 18px;
-		background: rgba(255, 255, 255, 0.25);
+	    background: rgba(137, 27, 60, 0.16);
 	    width: 100%;
 	    position: absolute;
 	    height: 100%;
 	    text-align: center;
-		padding: 4em 0;
-    	color: black;
+	    padding: 4em 0;
+	    color: white;
+	    font-weight: bolder;
 	}
 	.left{
 		border-right: 4px solid white !important;
-		border-bottom: 16px solid white;
+		border-bottom: 8px solid white;
 	}
 	.right{
 		border-left: 4px solid white !important;
-		border-bottom: 16px solid white;
+		border-bottom: 8px solid white;
 	}
 	.items_list .col{
 		padding: 0;

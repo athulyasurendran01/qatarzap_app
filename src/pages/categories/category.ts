@@ -14,7 +14,8 @@ export class CategoryPage implements OnInit{
   results: any;
   categories: any;
   category: string;
-
+  subCate: any;
+  
   constructor(private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {  }
 
   ngOnInit() {
@@ -26,6 +27,11 @@ export class CategoryPage implements OnInit{
 
     this.category = this.navParams.get("category") ? this.navParams.get("category") : 'Shop';
     this.getList(this.category);
+
+    this.UserService.apiTokenRequestGet('getSubCategory/'+this.category, {})
+      .map(res => res.json()).subscribe(data => {
+        this.subCate = data.data;
+    });
   }
 
   getList(item: string){
@@ -34,14 +40,17 @@ export class CategoryPage implements OnInit{
         this.results = data.data;
       });
   }
-  goToDetail(id){
-	this.navCtrl.push(CategoryDetailPage, {
-    category: id
-  });
+
+  categoryOnChange(item: string){
+    this.getList(item)
   }
 
-  goToMap(){
-  	this.navCtrl.push(MapPage);
+  goToDetail(id){
+	   this.navCtrl.push(CategoryDetailPage, { category: id });
+  }
+
+  goToMap(id){
+  	this.navCtrl.push(MapPage, { category: id });
   }
 
   getBlog(){
