@@ -11,10 +11,10 @@ import { UserService } from '../../app/user.service';
 })
 export class CategoryPage implements OnInit{
   
-  results: any;
-  categories: any;
-  category: string;
-  subCate: any;
+  results: any = [];
+  categories: any = [];
+  category: string = [];
+  subCate: any = [];
   
   constructor(private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {  }
 

@@ -8,7 +8,7 @@ import { UserService } from '../../app/user.service';
 })
 export class ImageListPage implements OnInit{
 	
-	items: any;
+	items: any = [];
 
 	constructor(private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {}
 

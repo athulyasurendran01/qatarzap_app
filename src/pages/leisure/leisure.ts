@@ -10,7 +10,7 @@ import { CategoryPage } from '../categories/category';
 })
 export class Leisure implements OnInit{
 
-	leisure_items: any;
+	leisure_items: any = [];
   	
   	constructor(private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {}
   	

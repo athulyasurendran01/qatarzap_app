@@ -10,7 +10,7 @@ import { CategoryPage } from '../categories/category';
 })
 export class Explore implements OnInit{
 	
-	explore_items: any;
+	explore_items: any = [];
 
 	constructor(private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {}
 
