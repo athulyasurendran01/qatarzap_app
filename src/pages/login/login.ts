@@ -11,13 +11,15 @@ export class LoginPage {
 	lang:any;
   constructor(public translate: TranslateService, public navCtrl: NavController, public navParams: NavParams) {
     this.lang = 'en';
-    this.translate.setDefaultLang('en');
-    this.translate.use('en');
+    localStorage.setItem("lang", this.lang);
+    //this.translate.setDefaultLang('en');
+    //this.translate.use('en');
   }
   gotoListing(){
   	this.navCtrl.push(ListPage);
   }
   switchLanguage() {
-    this.translate.use(this.lang);
+    //this.translate.use(this.lang);
+    localStorage.setItem("lang", this.lang);
   }
 }

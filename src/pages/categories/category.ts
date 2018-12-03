@@ -13,7 +13,7 @@ export class CategoryPage implements OnInit{
   
   results: any = [];
   categories: any = [];
-  category: string = [];
+  category: any = [];
   subCate: any = [];
   
   constructor(private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {  }
