@@ -21,6 +21,7 @@ import { MapPage } from '../pages/map/map';
 import { NewsBlog } from '../pages/news-blog/news-blog';
 import { NewsDetail } from '../pages/news-detail/news-detail';
 import { NewsMorePage } from '../pages/news-detail-more/news-detail-more';
+import { MenuPage } from '../pages/menu/menu';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -55,7 +56,8 @@ export function createTranslateLoader(http: HttpClient) {
     MapPage,
     NewsBlog,
     NewsDetail,
-    NewsMorePage
+    NewsMorePage,
+    MenuPage
   ],
   imports: [
     BrowserModule,
@@ -88,7 +90,8 @@ export function createTranslateLoader(http: HttpClient) {
     MapPage,
     NewsBlog,
     NewsDetail,
-    NewsMorePage
+    NewsMorePage,
+    MenuPage
   ],
   providers: [
     StatusBar,
