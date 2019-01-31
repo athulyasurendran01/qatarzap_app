@@ -15,7 +15,7 @@ export class CategoryPage implements OnInit{
   
   results: any = [];
   categories: any = [];
-  category: string;
+  category: any = [];
   subCate: any = [];
 
   footerScrollConfig: ScrollHideConfig = { cssProperty: 'margin-bottom', maxValue: 0 };

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-
+import { UserService } from '../../app/user.service';
 
 @IonicPage()
 @Component({
@@ -27,6 +27,16 @@ export class ListPage {
     switchLanguage() {
       //this.translate.use(this.lang);
       localStorage.setItem('language', this.lang);
+    languages: any = [];
+
+    constructor(public navCtrl: NavController, public navParams: NavParams, private UserService: UserService,) {
+     
+      this.UserService.apiTokenRequestGet('getcontent', {'lang':localStorage.getItem("lang")})
+	    .map(res => res.json()).subscribe(data => {
+        this.languages = {
+          'explore': "Explore",
+        };
+	    });
     }
     activeExplore(){
       this.explore = true;
