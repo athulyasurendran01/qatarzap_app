@@ -58,4 +58,42 @@ explore-list {
 	.footer_class{
 	    padding: 0 16px;
 	}
+
+	.explore_item{
+		height: 188px;
+	    text-align: center;
+	    padding: 3em;
+		border-bottom: 8px solid white;
+		background: #891b3c;
+	}
+	.explore_item span{
+		font-size: 22px;
+	}
+	.explore_item ion-icon{
+	    font-size: 64px;
+	}
+	.left{
+		border-right: 8px solid white;
+	}
+	.right{
+		border-left: 8px solid white;
+	}
+	.items_list .col{
+		padding: 0;
+	}
+	.grid{
+		padding: 0;
+	}
+	.tab_title{
+	    padding: 2em 0;
+    	margin-bottom: 1em;
+	}
+	.tab_title ion-col{
+	    text-align: center;
+	}
+	
+	.active{
+		font-size: 16px;
+		cursor: pointer;
+	}
 }

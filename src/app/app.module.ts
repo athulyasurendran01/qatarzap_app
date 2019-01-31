@@ -8,6 +8,7 @@ import { UserService } from './user.service';
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
+import { LayoutPage } from '../pages/layout/layout';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { ListPage } from '../pages/list/list';
@@ -33,16 +34,22 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+
+import { ScrollHideDirective } from './scroll-hide';
+import { SuperTabsModule } from 'ionic2-super-tabs';
+
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/lan/', '.json');
 }
 
 @NgModule({
   declarations: [
+    ScrollHideDirective,
     MyApp,
     AboutPage,
     ContactPage,
     HomePage,
+    LayoutPage,
     TabsPage,
     LoginPage,
     ListPage,
@@ -61,6 +68,7 @@ export function createTranslateLoader(http: HttpClient) {
     BrowserModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
+    SuperTabsModule.forRoot(),
     HttpClientModule,
     TranslateModule.forRoot({
       loader: {
@@ -76,6 +84,7 @@ export function createTranslateLoader(http: HttpClient) {
     AboutPage,
     ContactPage,
     HomePage,
+    LayoutPage,
     TabsPage,
     LoginPage,
     ListPage,

@@ -8,16 +8,12 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: 'login.html'
 })
 export class LoginPage {
-	lang:any;
   constructor(public translate: TranslateService, public navCtrl: NavController, public navParams: NavParams) {
-    this.lang = 'en';
-    this.translate.setDefaultLang('en');
-    this.translate.use('en');
+    //this.translate.setDefaultLang('en');
+    //this.translate.use('en');
   }
   gotoListing(){
   	this.navCtrl.push(ListPage);
   }
-  switchLanguage() {
-    this.translate.use(this.lang);
-  }
+  
 }

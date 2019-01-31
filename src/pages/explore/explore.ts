@@ -12,13 +12,13 @@ export class Explore implements OnInit{
 	
 	explore_items: any = [];
 
+
 	constructor(private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {}
 
 	ngOnInit() {
 
 	    this.UserService.apiTokenRequestGet('categories', {})
 	    .map(res => res.json()).subscribe(data => {
-	    	//alert(JSON.stringify(data))
 	    	this.explore_items = data.data;
 	    },
 		error => {

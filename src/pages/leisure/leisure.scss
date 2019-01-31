@@ -20,11 +20,12 @@ leisure-list {
 	}
 	.list_icon{
 		background: #8D1B3D;
-	    width: 150px;
-	    height: 150px;
+	    width: 140px;
+	    height: 140px;
 	    text-align: center;
 	    border-radius: 50%;
 	    margin: 0 auto;
+	    margin-right: 24px;
 	}
 	.list_icon ion-icon{
 		font-size: 86px;
@@ -32,8 +33,7 @@ leisure-list {
 	    color: white;
 	}
 	.leisure_list{
-		margin-bottom: 2em;
-	    margin-top: 1em;
+		padding: 24px;
 	}
 	.leisure_right ion-icon{
 		float: right;
@@ -44,7 +44,7 @@ leisure-list {
 	}
 	.leisure_right div{
 		font-size: 22px;
-	    padding: 1.5em;
+	    padding-left: 24px;
 	    color: #8d1b3d;
 	}
 	ion-footer{

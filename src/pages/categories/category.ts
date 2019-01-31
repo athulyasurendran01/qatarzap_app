@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { ScrollHideConfig } from '../../app/scroll-hide';
 import { CategoryDetailPage } from '../category-detail/category-detail';
 import { MapPage } from '../map/map';
 import { NewsBlog } from '../news-blog/news-blog';
 import { UserService } from '../../app/user.service';
+import { SuperTabs } from 'ionic2-super-tabs';
 
 @Component({
   selector: 'category-list',
@@ -13,8 +15,22 @@ export class CategoryPage implements OnInit{
   
   results: any = [];
   categories: any = [];
-  category: string = [];
+  category: string;
   subCate: any = [];
+
+  footerScrollConfig: ScrollHideConfig = { cssProperty: 'margin-bottom', maxValue: 0 };
+  headerScrollConfig: ScrollHideConfig = { cssProperty: 'margin-top', maxValue: -50 };
+
+  pages = [
+      { pageName: MapPage, title: 'Explore', id: 'newsTab'},
+      { pageName: MapPage, title: 'Where to go?', id: 'aboutTab'},
+  ];
+ 
+  selectedTab = 0;
+ 
+  @ViewChild(SuperTabs) superTabs: SuperTabs;
+
+
   
   constructor(private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {  }
 
@@ -32,6 +48,11 @@ export class CategoryPage implements OnInit{
       .map(res => res.json()).subscribe(data => {
         this.subCate = data.data;
     });
+  }
+
+  onTabSelect(ev: any) {
+    this.selectedTab = ev.index;
+    this.superTabs.clearBadge(this.pages[ev.index].id);
   }
 
   getList(item: string){
