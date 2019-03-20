@@ -13,8 +13,17 @@ ion-footer{
 	padding: 7px;
 	line-height: 50px;
 }
+.scroll-content{
+	background: #881a3c;
+}
 .toolbar-md-secondary .toolbar-background-md {
     background: #891b3c;
+}
+super-tabs-toolbar > ion-toolbar.toolbar .tab-buttons-container .tab-buttons super-tab-button{
+	padding: 0 6px;
+}
+super-tabs:not([no-shadow]) > super-tabs-toolbar > ion-toolbar.toolbar::after, super-tabs:not([no-shadow]) > super-tabs-toolbar > ion-toolbar.toolbar::before{
+	background-image: none;
 }
 super-tabs-container{
 	margin-top: 3em;
@@ -37,4 +46,7 @@ super-tabs-container{
 }
 super-tabs-container{
 	position: absolute !important;
+}
+.header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before{
+	background-image: none !important;
 }

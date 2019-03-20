@@ -2,7 +2,7 @@
 <ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent" style="padding: 10px 2em;">
   <ion-row>
     <ion-col class="more_option">
-    <span>
+    <span (click)="getMore()">
       <ion-icon ios="ios-more" md="md-more"></ion-icon>
       <span style="position: absolute;margin-top: 0px;">More</span>
     </span>
@@ -11,13 +11,16 @@
   </ion-row>
 </ion-header>
 
-<ion-content #pageContent fullscreen>
+
+<ion-content #pageContent fullscreen *ngIf="pages">
   <super-tabs tabsPlacement="top" toolbarBackground="secondary" toolbarColor="light" indicatorColor="light"
     (tabSelect)="onTabSelect($event)">
-    <super-tab *ngFor="let page of pages" [root]="page.pageName" [title]="page.title" [id]="page.id"></super-tab>
+    <super-tab *ngFor="let page of pages" [root]="page.pageName" [title]="page.title" [id]="page.id"[rootParams]="{category: page.id}"></super-tab>
   </super-tabs>
 </ion-content>
 
 <ion-footer (click)="gotoHome()" [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
   <ion-icon ios="ios-home" md="md-home"></ion-icon><span class="footer_class">Discover</span>
 </ion-footer>
+
+

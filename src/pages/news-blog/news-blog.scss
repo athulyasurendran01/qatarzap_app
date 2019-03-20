@@ -57,11 +57,11 @@ news-blog-list {
 	    .left{
 	        background: #2f2d2d;
 		    color: white;
-		    padding: 4em 1em;
-		    height: 250px;
+		    padding: 38px 1em;
+		    height: 200px;
 		    .content{
 		        border-left: 2px solid #7c1937;
-				padding: 0 1em;
+				padding: 0 12px;
 		    }
 	    }
 	    .absolute_div{
@@ -69,13 +69,13 @@ news-blog-list {
 		    top: -22px;
 		    background: #b7b5b5;
 		    color: black;
-		    padding: 1em 2em;
+		    padding: 10px 20px;
 		    left: 8px;
 		    font-size: 16px;
 		    font-weight: 900;
 	    }
 	    img{
-	    	height: 250px;
+	    	height: 200px;
 	    }
 	    h4{
 	    	margin-top: 0;
@@ -91,12 +91,19 @@ news-blog-list {
 			padding: 0;
 		}
 		div{
-			background: #8d1b3d;
 		    color: white;
 		    border-top: 8px solid white;
-		    padding: 3em 2em;
 		    text-align: center;
 		    font-size: 16px;
+		    background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+		h1{
+		padding: 50px 0;
+    	background: #0000005c;
+    	margin: 0;
+    	font-size: 20px;
 		}
 		.left{
 			border-right: 4px solid white;

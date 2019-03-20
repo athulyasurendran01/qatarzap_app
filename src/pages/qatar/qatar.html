@@ -2,13 +2,13 @@
   <ion-grid>
     <ion-row class="second_tab">
       <ion-col (click)="activeHistory()" [ngClass]="(history)?'active':''">
-        <span>Qatar History</span>
+        <span>History</span>
       </ion-col>
-      <ion-col style="margin-top: -5px;" (click)="activeDevelopment()" [ngClass]="(development)?'active':''">
-        <span>Qatar Development</span>
+      <ion-col (click)="activeDevelopment()" [ngClass]="(development)?'active':''">
+        <span>Development</span>
       </ion-col>
       <ion-col (click)="activePolitics()" [ngClass]="(politics)?'active':''">
-        <span class="">Qatar Politics</span>
+        <span class="">Politics</span>
       </ion-col>
     </ion-row>
     

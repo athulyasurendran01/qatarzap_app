@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { App, NavController, NavParams } from 'ionic-angular';
 
 import { UserService } from '../../app/user.service';
-import { CategoryPage } from '../categories/category';
+import { CategoryLayoutPage } from '../category_layout/categoryLayout';
 
 @Component({
   selector: 'explore-list',
@@ -12,12 +12,11 @@ export class Explore implements OnInit{
 	
 	explore_items: any = [];
 
-
-	constructor(private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {}
+	constructor(private app : App, private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {}
 
 	ngOnInit() {
-
-	    this.UserService.apiTokenRequestGet('categories', {})
+		var lang = window.localStorage.language;
+	    this.UserService.apiTokenRequestGet('categories/'+lang, {})
 	    .map(res => res.json()).subscribe(data => {
 	    	this.explore_items = data.data;
 	    },
@@ -27,8 +26,6 @@ export class Explore implements OnInit{
 	}
 
     goToCategory(item){
-      this.navCtrl.push(CategoryPage, {
-	      category: item,
-		});
+    	this.app.getRootNav().push(CategoryLayoutPage, {category: item});
     }
 }

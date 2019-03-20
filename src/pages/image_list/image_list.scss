@@ -1,48 +1,67 @@
 image-list {
-	.toolbar-background-md {
-    	border-color: white;
-    	background: #412930;
-    }
+	background: white;
+	.image_item{
+	    border-bottom: 8px solid white;
+	}
+	.image_item div{
+		font-size: 18px;
+	    position: absolute;
+	    width: 96%;
+	    text-align: center;
+	    padding: 64px 0;
+	    background: #81678c6b;
+	    overflow: hidden;
+	    height: 150px;
+	}
     .content-md {
-	    color: white;
-	    background: linear-gradient(#4E2733, #8D1B3D);
+    	background-color: #8d1b3d;
 	}
 	.tab_item{
 		font-size: 22px;
 	}
-	.image_item{
-	    height: 200px;
-    	background-image: url("../assets/imgs/guppi6.jpg");
-    	background-repeat: round;
-	}
-	.image_item span{
-		font-size: 18px;
-	    background: rgba(137, 27, 60, 0.16);
-	    width: 100%;
-	    position: absolute;
-	    height: 100%;
-	    text-align: center;
-	    padding: 4em 0;
-	    color: white;
-	    font-weight: bolder;
-	}
-	.left{
-		border-right: 4px solid white !important;
-		border-bottom: 8px solid white;
-	}
-	.right{
-		border-left: 4px solid white !important;
-		border-bottom: 8px solid white;
-	}
-	.items_list .col{
-		padding: 0;
-	}
-	.grid{
-		padding: 0;
+	.leisure_left{
+		border-right: 2px solid #8d1b3d;
 	}
 	.tab_title{
 	    padding: 2em 0;
+		background: #8d1b3d;
+    	color: white;
     	margin-bottom: 1em;
+	}
+	img{
+		height: 150px;
+	}
+	.grid{
+		padding: 0;
+		/*background-color: #8d1b3d;*/
+	}
+	.list_icon{
+		background: #8D1B3D;
+	    width: 180px;
+	    height: 180px;
+	    text-align: center;
+	    border-radius: 50%;
+	    margin: 0 auto;
+	}
+	.list_icon ion-icon{
+		font-size: 110px;
+	    margin: 35px 0;
+	    color: white;
+	}
+	.leisure_list{
+		margin-bottom: 3em;
+	}
+	.leisure_right ion-icon{
+		float: right;
+	    font-size: 36px;
+	}
+	.leisure_right{
+		margin: auto;
+	}
+	.leisure_right div{
+		font-size: 26px;
+	    padding: 2em;
+	    color: #8d1b3d;
 	}
 	ion-footer{
 	    background: black;
@@ -55,8 +74,28 @@ image-list {
 	.footer_class{
 	    padding: 0 16px;
 	}
+	.left{
+		border-right: 6px solid white;
+	}
+	.right{
+		border-left: 6px solid white;
+	}
+	.items_list .col{
+		padding: 0;
+	}
+	.grid{
+		padding: 0;
+	}
+	.tab_title{
+	    padding: 2em 0;
+    	margin-bottom: 1em;
+	}
+	.tab_title ion-col{
+	    text-align: center;
+	}
+	
 	.active{
-		border-bottom: 3px solid;
+		font-size: 16px;
 		cursor: pointer;
 	}
 }

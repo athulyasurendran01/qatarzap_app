@@ -7,15 +7,17 @@ category-list {
 		padding-left: 10px !important;
 		padding-right: 10px !important;
 	}
+	.scroll-content{
+		background: white;
+	}
 	select{
-		width: 60%;
+	    width: 90%;
 	    background: #811a39;
-	    padding: 1em;
+	    padding: 10px;
 	    color: white;
 	    border: 0;
-	    margin-left: 14px;
 	    margin: auto;
-	    margin-top: 1em;
+	    margin-top: 10px;
 	}
 	img{
 	    width: 100%;
@@ -47,6 +49,7 @@ category-list {
 		    width: 100px;
 		    background: #4D4D4D;
 		    border-radius: 50%;
+		    border: 1px solid #9E9E9E;
 	    }
 	    h3{
 	        margin-bottom: 2px;

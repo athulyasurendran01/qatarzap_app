@@ -1,11 +1,13 @@
   <ion-grid>
     <ion-row class="items_list" *ngIf="explore_items">
       <ion-col col-6 *ngFor="let item of explore_items; let i = index">
-        <div *ngIf="i % 2 === 0" class="explore_item let" (click)="goToCategory(item.name)"><span>{{item.name}}</span><br/>
-        	<ion-icon md={{item.image}}></ion-icon></div>
+        <div *ngIf="i % 2 === 0" class="explore_item let" (click)="goToCategory(item.name)">
+          <span>{{item.name}}</span><br/>
+        	<ion-icon name="{{item.image}}"></ion-icon></div>
 
-        <div *ngIf="i % 2 != 0" class="explore_item right" (click)="goToCategory(item.name)"><span>{{item.name}}</span><br/>
-        	<ion-icon ios="ios-restaurant" md="{{item.image}}"></ion-icon></div>
+        <div *ngIf="i % 2 != 0" class="explore_item right" (click)="goToCategory(item.name)">
+          <span>{{item.name}}</span><br/>
+        	<ion-icon name="{{item.image}}"></ion-icon></div>
       </ion-col>
     </ion-row>
     <ion-row class="items_list" *ngIf="!explore_items">
@@ -13,5 +15,5 @@
         Data Loading .......
       </ion-col>
     </ion-row>
-  </ion-grid>
+  </ion-grid><br><br>
 

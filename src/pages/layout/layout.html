@@ -2,27 +2,13 @@
 <ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent" style="padding: 10px 2em;">
 	<ion-row>
 		<ion-col class="more_option">
-		<span>
+		<span (click)="getMore()">
 			<ion-icon ios="ios-more" md="md-more"></ion-icon>
-			<span>More</span>
+			<span style="position: absolute;margin-top: 0px;">More</span>
 		</span>
-		<ion-icon class="search_icon" ios="ios-search" md="md-search"></ion-icon>
+		<ion-icon class="search_icon" name="search"></ion-icon>
 		</ion-col>
 	</ion-row>
-	<!-- <ion-row>
-		<ion-col col-3 (click)="activeExplore()" [ngClass]="(explore)?'active':''">
-			<span>Explore</span>
-		</ion-col>
-		<ion-col col-4 (click)="activeWhereToGo()" [ngClass]="(where_to_go)?'active':''">
-			<span>Where to go?</span>
-		</ion-col>
-		<ion-col col-3 (click)="activeLeisure()" [ngClass]="(leisure)?'active':''">
-			<span class="">Leisure</span>
-		</ion-col>
-		<ion-col col-2 (click)="activeQatar()" [ngClass]="(qatar)?'active':''">
-			<span class="">Qatar</span>
-		</ion-col>
-	</ion-row> -->
 </ion-header>
 
 <ion-content #pageContent fullscreen>
@@ -30,7 +16,6 @@
 	  (tabSelect)="onTabSelect($event)">
 		<super-tab *ngFor="let page of pages" [root]="page.pageName" [title]="page.title" [id]="page.id"></super-tab>
 	</super-tabs>
-	<explore-list style="display: none"></explore-list>
 </ion-content>
 
 <ion-footer (click)="gotoHome()" [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { CategoryPage } from '../categories/category';
+import { CategoryLayoutPage } from '../category_layout/categoryLayout';
 
 @Component({
   selector: 'news-detail-more-list',
@@ -13,6 +13,6 @@ export class NewsMorePage {
   	}
 
   	goToBack(){
-	  	this.navCtrl.push(CategoryPage);
+	  	this.navCtrl.push(CategoryLayoutPage);
 	  }
 }

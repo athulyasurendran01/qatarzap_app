@@ -1,27 +1,52 @@
-page-home {
-	.content-md {
-	    color: white;
-	    background-image: linear-gradient(#000000, #8A1C3D);
+ion-header{
+	padding: 2em;
+	color: white;
+	font-size: 14px !important;
+	background-image: linear-gradient(#000000, #891b3c);
+}
+ion-footer{
+	background: black;
+	color: white;
+	font-size: 22px;
+	text-align: center;
+	height: 58px;
+	padding: 7px;
+	line-height: 50px;
+}
+.scroll-content{
+	background: #881a3c;
+}
+.toolbar-md-secondary .toolbar-background-md {
+    background: #891b3c;
+}
+super-tabs-toolbar > ion-toolbar.toolbar .tab-buttons-container .tab-buttons super-tab-button{
+	padding: 0 6px;
+}
+super-tabs:not([no-shadow]) > super-tabs-toolbar > ion-toolbar.toolbar::after, super-tabs:not([no-shadow]) > super-tabs-toolbar > ion-toolbar.toolbar::before{
+	background-image: none;
+}
+super-tabs-container{
+	margin-top: 3em;
+}
+.title{
+	text-transform: none;
+}
+.footer_class{
+	padding: 0 16px;
+}
+.content-md {
+	color: white;
+}
+.more_option{
+	font-size: 22px;
+	margin-bottom: 12px;
+	.search_icon{
+		float: right;
 	}
-	.scroll-content {
-		margin: 6em 0;
-	    overflow: hidden;
-	}
-	h3{
-		font-size: 36px;
-	    font-weight: 400;
-	    line-height: 50px;
-	    margin-bottom: 1em;
-	}
-	.home_btn{
-		height: 84px;
-	    background: #2D2D2D;
-	    font-size: 28px;
-	    font-weight: 400;
-	    text-transform: unset;
-		margin-top: 1em;
-	}
-	.home_btn:hover{
-		background-color: #222 !important;
-	}
+}
+super-tabs-container{
+	position: absolute !important;
+}
+.header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before{
+	background-image: none !important;
 }

@@ -1,1 +1,24 @@
-<ion-nav [root]="rootPage"></ion-nav>
+<ion-menu [content]="content">
+  <ion-header>
+      <select (change)="ChangeLanguage($event)" id="lang_select">
+        <option value="eng">English</option>
+        <option value="arabic">Arabic</option>
+      </select>
+    <ion-toolbar>
+      <ion-title>More</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-list>
+      <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
+        <ion-icon class="menu_icon" name="{{p.icon}}"></ion-icon>
+        <span *ngIf="lang == 'eng'" class="menu_label">{{p.title}}</span>
+        <span *ngIf="lang == 'arabic'" class="menu_label">{{p.title_arabic}}</span>
+      </button>
+    </ion-list>
+  </ion-content>
+
+</ion-menu>
+
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

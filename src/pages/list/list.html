@@ -1,67 +1,23 @@
-
-
-
-
-
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>List</ion-title>
+  </ion-navbar>
+</ion-header>
 
 <ion-content>
-
-  <!-- <ion-select [(ngModel)]="lang" (ionChange)="switchLanguage()">
-    <ion-option value="en">English</ion-option>
-    <ion-option value="ta">Arabic</ion-option>
-  </ion-select> -->
-
-  <!-- <h2>{{ 'APPLE' | translate }}</h2> -->
-
-
-  <ion-menu [content]="content">
-
-    <ion-toolbar>
-      <ion-title>Pages</ion-title>
-    </ion-toolbar>
-
-    <ion-content>
-      <ion-list>
-        <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
-          {{p.title}}
-        </button>
-      </ion-list>
-    </ion-content>
-
-  </ion-menu>
-
-  <ion-nav id="nav" [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>
-
-
-    <ion-grid class="main_tab"> 
-      <ion-row>
-        <ion-col class="more_option">
-            <span>
-              <ion-icon ios="ios-more" md="md-more"></ion-icon>
-              <span>More</span>
-            </span>
-              <ion-icon class="search_icon" ios="ios-search" md="md-search"></ion-icon>
-        </ion-col>
-      </ion-row>
-      <ion-row>
-          <ion-col col-3 (click)="activeExplore()" [ngClass]="(explore)?'active':''">
-            <span>Explore</span>
-          </ion-col>
-          <ion-col col-4 (click)="activeWhereToGo()" [ngClass]="(where_to_go)?'active':''">
-            <span>Where to go?</span>
-          </ion-col>
-          <ion-col col-3 (click)="activeLeisure()" [ngClass]="(leisure)?'active':''">
-            <span class="">Leisure</span>
-          </ion-col>
-          <ion-col col-2 (click)="activeQatar()" [ngClass]="(qatar)?'active':''">
-            <span class="">Qatar</span>
-          </ion-col>
-      </ion-row>
-    </ion-grid>
-    
-      <explore-list *ngIf="explore"></explore-list>
-      <image-list *ngIf="where_to_go"></image-list>
-      <leisure-list *ngIf="leisure"></leisure-list>
-      <qatar-list *ngIf="qatar"></qatar-list>
-
-</ion-content> 
+  <ion-list>
+    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+      <ion-icon [name]="item.icon" item-start></ion-icon>
+      {{item.title}}
+      <div class="item-note" item-end>
+        {{item.note}}
+      </div>
+    </button>
+  </ion-list>
+  <div *ngIf="selectedItem" padding>
+    You navigated here from <b>{{selectedItem.title}}</b>
+  </div>
+</ion-content>

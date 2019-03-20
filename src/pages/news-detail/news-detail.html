@@ -8,63 +8,35 @@
     
     <div class="news_details_content">
       <ion-row class="main_head">
-        <ion-col>
-          <img src="./assets/imgs/guppi6.jpg" height="98%" />
+        <ion-col col-12>
+          <img style="max-height: 200px;" src="./assets/imgs/guppi6.jpg" height="98%" />
         </ion-col>
-        <ion-col>          
+        <ion-col col-12>          
           <div class="header_description">
-              <h2>Lorem ipsum</h2>
-              <span>BY XXX | 1 HOUR AGO</span>
+              <h2>The first Qatari factory to manufacture smartphones and other consumer</h2>
+              <!--<span>BY XXX | 1 HOUR AGO</span>
               <p>Lorem ipsum dolor sit amet, con-
               sectetuer adipiscing elit, sed diam
               nonummy nibh euismod tincidunt
               ut laoreet dolore magna aliquam
               erat volutpat. Ut wisi enim ad
               veniam,</p>
-              <span class="read_more" (click)="newsReadMore()">Read more</span>
+              <span class="read_more" (click)="newsReadMore()">Read more</span>-->
           </div>
         </ion-col>
       </ion-row>
 
-      <ion-row class="news_list">
+      <ion-row class="news_list" (click)="newsReadMore()" *ngFor="let news of newsdetail">
           <ion-col col-4>  
             <img src="./assets/imgs/guppi6.jpg"/>
           </ion-col>
-          <ion-col>  
-            <h2>Lorem ipsum</h2>
+          <ion-col col-8>  
+            <h2>{{news.title}}</h2>
             <span>BY XXX | 1 HOUR AGO</span>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-            euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
-            veniam,</p>
-            <span class="read_more">Read more</span>
+            <p>{{news.description}}</p>
           </ion-col>
       </ion-row>
-      <ion-row class="news_list">
-          <ion-col col-4>  
-            <img src="./assets/imgs/guppi6.jpg"/>
-          </ion-col>
-          <ion-col>  
-            <h2>Lorem ipsum</h2>
-            <span>BY XXX | 1 HOUR AGO</span>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-            euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
-            veniam,</p>
-            <span class="read_more">Read more</span>
-          </ion-col>
-      </ion-row>
-      <ion-row class="news_list">
-          <ion-col col-4>  
-            <img src="./assets/imgs/guppi6.jpg"/>
-          </ion-col>
-          <ion-col>  
-            <h2>Lorem ipsum</h2>
-            <span>BY XXX | 1 HOUR AGO</span>
-            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh
-            euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad
-            veniam,</p>
-            <span class="read_more">Read more</span>
-          </ion-col>
-      </ion-row><br/>
+      <br/>
     </div>
 
 

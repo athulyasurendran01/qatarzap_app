@@ -1,36 +1,10 @@
 
-<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent" style="padding: 10px 2em;">
-  <ion-row>
-    <ion-col class="more_option">
-    <span>
-      <ion-icon ios="ios-more" md="md-more"></ion-icon>
-      <span>More</span>
-    </span>
-    <ion-icon class="search_icon" ios="ios-search" md="md-search"></ion-icon>
-    </ion-col>
-  </ion-row>
-</ion-header>
-
-<ion-content #pageContent fullscreen>
-  <super-tabs tabsPlacement="top" toolbarBackground="secondary" toolbarColor="light" indicatorColor="light"
-    (tabSelect)="onTabSelect($event)">
-    <super-tab *ngFor="let page of pages" [root]="page.pageName" [title]="page.title" [id]="page.id"></super-tab>
-  </super-tabs>
-  <explore-list style="display: none"></explore-list>
-</ion-content>
-
 <ion-content>
-    <ion-grid class="main_tab"> 
-    <ion-row class="tab_title">
-      <ion-col *ngFor="let item of categories">
-        <span class="tab_item" (click)="getList(item.name)">{{item.name}}</span>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
   <ion-grid>
     <ion-row>
       <select placeholder="Choose Category" (change)="categoryOnChange(selectedOption)" [(ngModel)]="selectedOption" >
         <optgroup>
+          <option selected value="0">Choose Category</option>
           <option [value]="sub.name" *ngFor="let sub of subCate">{{sub.name}}</option>
         </optgroup>
       </select>
@@ -47,63 +21,6 @@
         </div>
         <div class="arraow_location" (click)="goToMap(result.id)"><ion-icon ios="ios-navigate" md="md-navigate"></ion-icon></div>
       </ion-col>
-    </ion-row>
-
-    <!-- <ion-row class="category_items">
-      <ion-col col-auto>
-        <div class="circle"></div>
-      </ion-col>
-      <ion-col>
-        <div class="title_desc">
-          <h3>The Mall</h3>
-          <h4>D-Ring Road - Mall intersection, opposite to
-            Al-Ahly Club P.O. 22544 - Doha, Qatar</h4>
-        </div>
-        <div class="arraow_location"><ion-icon ios="ios-navigate" md="md-navigate"></ion-icon></div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row class="category_items">
-      <ion-col col-auto>
-        <div class="circle"></div>
-      </ion-col>
-      <ion-col>
-        <div class="title_desc">
-          <h3>The Mall</h3>
-          <h4>D-Ring Road - Mall intersection, opposite to
-            Al-Ahly Club P.O. 22544 - Doha, Qatar</h4>
-        </div>
-        <div class="arraow_location"><ion-icon ios="ios-navigate" md="md-navigate"></ion-icon></div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row class="category_items">
-      <ion-col col-auto>
-        <div class="circle"></div>
-      </ion-col>
-      <ion-col>
-        <div class="title_desc">
-          <h3>The Mall</h3>
-          <h4>D-Ring Road - Mall intersection, opposite to
-            Al-Ahly Club P.O. 22544 - Doha, Qatar</h4>
-        </div>
-        <div class="arraow_location"><ion-icon ios="ios-navigate" md="md-navigate"></ion-icon></div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row class="category_items">
-      <ion-col col-auto>
-        <div class="circle"></div>
-      </ion-col>
-      <ion-col>
-        <div class="title_desc">
-          <h3>The Mall</h3>
-          <h4>D-Ring Road - Mall intersection, opposite to
-            Al-Ahly Club P.O. 22544 - Doha, Qatar</h4>
-        </div>
-        <div class="arraow_location"><ion-icon ios="ios-navigate" md="md-navigate"></ion-icon></div>
-      </ion-col>
-    </ion-row> -->
-    
+    </ion-row>    
   </ion-grid>
 </ion-content>

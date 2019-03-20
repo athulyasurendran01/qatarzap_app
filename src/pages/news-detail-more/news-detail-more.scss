@@ -1,4 +1,15 @@
 news-detail-more-list {
+	.social_icons{
+	    background-color: #8C1B3C;
+	    padding: 4px;
+	    font-size: 30px;
+	    text-align: center;
+	    border-radius: 4px;
+	}
+	.header_description{
+		color: black;
+		padding: 14px;
+	}
 	.toolbar-background-md {
     	border-color: white;
     }
@@ -23,11 +34,21 @@ news-detail-more-list {
     		margin: 0;
     	}
 	}
+	.social_icons_grp{
+	    text-align: center;
+	    border-top: 1px solid #827878;
+	    width: 65%;
+	    margin: auto;
+	    padding-top: 16px;
+	}
 	h4{
 		text-align: center;
-	    width: 100%;
-	    border-bottom: 2px solid #827878;
+	    width: 65%;
+	    border-bottom: 1px solid #827878;
 	    padding-bottom: 12px;
+	    color:black;
+	    margin: auto;
+	    padding-top: 16px;
 	}
 	.news_details_content{
 		.read_more{
@@ -52,7 +73,7 @@ news-detail-more-list {
 		}
 		.main_head{
 			.col{
-				padding-top: 1em;
+				padding: 0;
 			}
 		}
 	}

@@ -1,18 +1,16 @@
 
 <ion-content>
   <ion-grid>
-    <ion-row class="tab_title">
-      <ion-icon class="back_btn" (click)="goToBack()" ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
-      <h2>Latest News</h2>
-    </ion-row>
-    
     <div class="news_details_content">
       <ion-row class="main_head">
         <ion-col>
+          <ion-icon class="back_btn" (click)="goToBack()" ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
           <img src="./assets/imgs/guppi6.jpg"/>         
           <div class="header_description">
-              <h2>Lorem ipsum</h2>
+            <div style="position: absolute;top: 145px; color: white;">
+              <h2>Amir meets Turkish president</h2>
               <span>BY XXX | 1 HOUR AGO</span>
+            </div>
               <p>Lorem ipsum dolor sit amet, consectetuer
 adipiscing elit, sed diam
 nonummy nibh euismod tincidunt
@@ -27,20 +25,22 @@ nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hend
 in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla
 facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent
 luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-
+<br>
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi
-enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
-nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit
-in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla
-facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent
-luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
 </p>
           </div>
         </ion-col>
       </ion-row>
       <ion-row>
         <ion-col>
+          <div class="social_icons_grp">
+            <ion-icon class="social_icons" name="logo-facebook"></ion-icon>
+            <ion-icon class="social_icons" name="mail"></ion-icon>
+            <ion-icon class="social_icons" name="logo-googleplus"></ion-icon>
+            <ion-icon class="social_icons" name="logo-linkedin"></ion-icon>
+            <ion-icon class="social_icons" name="logo-twitter"></ion-icon>
+          </div>
           <h4>Related News</h4>
         </ion-col>
       </ion-row>

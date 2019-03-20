@@ -1,12 +1,15 @@
 <ion-content>
   <ion-grid class="main_tab">
-    <ion-row>
-      <ion-col class="more_option">
-          <ion-icon ios="ios-more" md="md-more"></ion-icon>
-          <span>More</span>
-      </ion-col>
-    </ion-row>
-    <ion-row class="second_tab">
+  <ion-row>
+    <ion-col class="more_option">
+    <span>
+      <ion-icon ios="ios-more" md="md-more"></ion-icon>
+      <span style="position: absolute;margin-top: 0px;">More</span>
+    </span>
+    <ion-icon (click)="changeLanguage()" class="search_icon" ios="ios-globe" md="md-globe"></ion-icon>
+    </ion-col>
+  </ion-row>
+  <ion-row class="second_tab">
       <ion-col (click)="activeNews()" [ngClass]="(news)?'active':''">
         <span>NEWS</span>
       </ion-col>
@@ -16,25 +19,25 @@
     </ion-row>
     </ion-grid>
     <ion-grid>
-    <div class="news_content" *ngIf="news">
+    <div class="news_content">
       <ion-row>
-        <ion-col col-6>
-          <div (click)="newsDetail()" class="left"><span>Latest News</span></div>
+        <ion-col col-6 *ngFor="let category of newsCategories">
+          <div (click)="newsDetail(category.id)" style='background-image: url("https://www.gettyimages.ie/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg");' class="left"><h1><span>{{category.name}}</span></h1></div>
         </ion-col>
-        <ion-col col-6>
-          <div class="right"><span>Local News</span></div>
-        </ion-col>
-        <ion-col>
-          <div class="left"><span>Sports</span></div>
+        <!--<ion-col col-6>
+          <div class="right" style='background-image: url("https://www.gettyimages.ie/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg");'><h1><span>Local News</span></h1></div>
         </ion-col>
         <ion-col>
-          <div class="right"><span>Weather</span></div>
+          <div class="left" style='background-image: url("https://www.gettyimages.ie/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg");'><h1><span>Sports</span></h1></div>
         </ion-col>
+        <ion-col>
+          <div class="right" style='background-image: url("https://www.gettyimages.ie/gi-resources/images/Homepage/Hero/UK/CMS_Creative_164657191_Kingfisher.jpg");'><h1><span>Weather</span></h1></div>
+        </ion-col>-->
       </ion-row>
     </div>
 
     <div class="blog_content" *ngIf="blog">
-      <ion-row>
+      <ion-row (click)="blogDetail()">
         <ion-col>
           <div class="left">
             <div class="absolute_div">dd/mm/yy</div>
@@ -52,7 +55,7 @@
           <img src="./assets/imgs/guppi6.jpg"/>
         </ion-col>
       </ion-row>
-      <ion-row>
+      <ion-row (click)="blogDetail()">
         <ion-col>
           <div class="left">
             <div class="absolute_div">dd/mm/yy</div>
@@ -70,7 +73,7 @@
           <img src="./assets/imgs/guppi6.jpg"/>
         </ion-col>
       </ion-row>
-      <ion-row>
+      <ion-row (click)="blogDetail()">
         <ion-col>
           <div class="left">
             <div class="absolute_div">dd/mm/yy</div>

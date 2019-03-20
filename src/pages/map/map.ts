@@ -1,6 +1,6 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { CategoryPage } from '../categories/category';
+import { CategoryLayoutPage } from '../category_layout/categoryLayout';
 import { Geolocation } from '@ionic-native/geolocation';
 import { UserService } from '../../app/user.service';
 
@@ -16,8 +16,8 @@ export class MapPage {
  	map: any;
  	category: number;
  	categories:any;
- 	current_lat: number = 25.354826;
- 	current_lng: number = 51.183884;
+ 	current_lat: number;
+ 	current_lng: number;
 
  	category_lat: number =  25.285446;
  	category_lng: number =  51.531040;
@@ -32,9 +32,12 @@ export class MapPage {
 	  	this.getCategory();
 
 	  	this.geolocation.getCurrentPosition().then((resp) => {
+	  		console.log(resp )
 			this.current_lat = resp.coords.latitude;
 			this.current_lng = resp.coords.longitude;
 		}).catch((error) => {
+			this.current_lat = 25.354826;
+	 		this.current_lng = 51.183884;
 		  	console.log('Error getting location', error);
 		});
 
@@ -85,7 +88,7 @@ export class MapPage {
 	}
 
 	goToBack(){
-		this.navCtrl.push(CategoryPage);
+		this.navCtrl.push(CategoryLayoutPage);
 	}
 
 	changeDirectionType(type){

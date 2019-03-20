@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { NewsDetail } from '../news-detail/news-detail';
+//import { BlogDetailPage } from '../blog-detail/blog-detail';
+import { UserService } from '../../app/user.service';
 
 @Component({
   selector: 'news-blog-list',
@@ -9,10 +11,14 @@ import { NewsDetail } from '../news-detail/news-detail';
 export class NewsBlog {
 
 	news: boolean = true;
-    blog: boolean = false;
+  blog: boolean = false;
+  newsCategories = [];
 
-  	constructor(public navCtrl: NavController, public navParams: NavParams) {
-    
+  	constructor(private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {
+      this.UserService.apiTokenRequestGet('getnewscategory', {})
+        .map(res => res.json()).subscribe(data => {
+          this.newsCategories = data.data;
+      });
   	}
 
   	activeNews(){
@@ -25,7 +31,13 @@ export class NewsBlog {
   		this.blog = true;
   	}
 
-    newsDetail(){
-      this.navCtrl.push(NewsDetail);
+    newsDetail(id){
+      this.navCtrl.push(NewsDetail, {
+        category: id
+      });
+    }
+
+    blogDetail(){
+      //this.navCtrl.push(BlogDetailPage);
     }
 }

@@ -10,19 +10,11 @@ import { UserService } from '../../app/user.service';
 export class CategoryDetailPage {
 
   category: number;
-  categories: any;
   categoryArray: any;
   facilities: any;
   hours: any;
 
   constructor(private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {
-
-    this.UserService.apiTokenRequestGet('categories', {})
-    .map(res => res.json()).subscribe(data => {
-      //alert(JSON.stringify(data))
-      this.categories = data.data;
-    });
-
 
   	this.category = this.navParams.get("category"); 
     this.UserService.apiTokenRequestGet('category/'+this.category, {})

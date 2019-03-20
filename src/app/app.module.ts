@@ -9,7 +9,6 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { LayoutPage } from '../pages/layout/layout';
-import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { ListPage } from '../pages/list/list';
 import { Explore } from '../pages/explore/explore';
@@ -17,12 +16,12 @@ import { ImageListPage } from '../pages/image_list/image_list';
 import { Leisure } from '../pages/leisure/leisure';
 import { QatarPage } from '../pages/qatar/qatar';
 import { CategoryPage } from '../pages/categories/category';
+import { CategoryLayoutPage } from '../pages/category_layout/categoryLayout';
 import { CategoryDetailPage } from '../pages/category-detail/category-detail';
 import { MapPage } from '../pages/map/map';
 import { NewsBlog } from '../pages/news-blog/news-blog';
 import { NewsDetail } from '../pages/news-detail/news-detail';
 import { NewsMorePage } from '../pages/news-detail-more/news-detail-more';
-import { MenuPage } from '../pages/menu/menu';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -32,16 +31,10 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { HttpModule } from '@angular/http';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-
 
 import { ScrollHideDirective } from './scroll-hide';
 import { SuperTabsModule } from 'ionic2-super-tabs';
 
-export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, './assets/lan/', '.json');
-}
 
 @NgModule({
   declarations: [
@@ -51,7 +44,6 @@ export function createTranslateLoader(http: HttpClient) {
     ContactPage,
     HomePage,
     LayoutPage,
-    TabsPage,
     LoginPage,
     ListPage,
     Explore,
@@ -60,11 +52,11 @@ export function createTranslateLoader(http: HttpClient) {
     QatarPage,
     CategoryPage,
     CategoryDetailPage,
+    CategoryLayoutPage,
     MapPage,
     NewsBlog,
     NewsDetail,
-    NewsMorePage,
-    MenuPage
+    NewsMorePage
   ],
   imports: [
     BrowserModule,
@@ -72,13 +64,6 @@ export function createTranslateLoader(http: HttpClient) {
     IonicModule.forRoot(MyApp),
     SuperTabsModule.forRoot(),
     HttpClientModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: createTranslateLoader,
-        deps: [HttpClient]
-      }
-    })
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -87,7 +72,6 @@ export function createTranslateLoader(http: HttpClient) {
     ContactPage,
     HomePage,
     LayoutPage,
-    TabsPage,
     LoginPage,
     ListPage,
     Explore,
@@ -96,11 +80,11 @@ export function createTranslateLoader(http: HttpClient) {
     QatarPage,
     CategoryPage,
     CategoryDetailPage,
+    CategoryLayoutPage,
     MapPage,
     NewsBlog,
     NewsDetail,
-    NewsMorePage,
-    MenuPage
+    NewsMorePage
   ],
   providers: [
     StatusBar,
