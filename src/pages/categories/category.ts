@@ -16,8 +16,11 @@ export class CategoryPage implements OnInit{
   subCate: any = [];
   selectedOption: string = '0';
   category: string;
+  serverurl: string = '';
 
-  constructor(private app : App, private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {  }
+  constructor(private app : App, private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {  
+    this.serverurl = this.UserService.getServerURL()+'/images/package/';
+  }
 
   ngOnInit() {
     this.category = this.navParams.get("category") ? this.navParams.get("category") : 'Shop';

@@ -13,9 +13,10 @@ export class CategoryDetailPage {
   categoryArray: any;
   facilities: any;
   hours: any;
+  serverurl: string = '';
 
   constructor(private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {
-
+    this.serverurl = this.UserService.getServerURL()+'/images/package/';
   	this.category = this.navParams.get("category"); 
     this.UserService.apiTokenRequestGet('category/'+this.category, {})
       .map(res => res.json()).subscribe(data => {

@@ -5,30 +5,13 @@
       <ion-row class="main_head">
         <ion-col>
           <ion-icon class="back_btn" (click)="goToBack()" ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
-          <img src="./assets/imgs/guppi6.jpg"/>         
+          <img src="{{serverurl}}{{newsdetail.image}}"/>         
           <div class="header_description">
             <div style="position: absolute;top: 145px; color: white;">
-              <h2>Amir meets Turkish president</h2>
+              <h2>{{newsdetail.title}}</h2>
               <span>BY XXX | 1 HOUR AGO</span>
             </div>
-              <p>Lorem ipsum dolor sit amet, consectetuer
-adipiscing elit, sed diam
-nonummy nibh euismod tincidunt
-ut laoreet dolore magna aliquam
-erat volutpat. Ut wisi enim ad veniam,Ut
-wisi wisi enimwisi enim
-iam,Ut wisi wisi enimwisi enim
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi
-enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis
-nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit
-in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla
-facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent
-luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
-<br>
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
-nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-</p>
+              <p>{{newsdetail.description}}</p>
           </div>
         </ion-col>
       </ion-row>

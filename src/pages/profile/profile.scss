@@ -1,0 +1,62 @@
+profile-page {
+	.scroll-content{
+		background: white;
+	}
+	.second_tab{
+		text-align: center;
+	}
+	.second_tab .selected_col{
+		border-right: 1px solid white;
+	}
+	.heading{
+	    width: 100%;
+	    font-size: 20px;
+	    text-align: center;
+	    padding: 8px;
+	}
+	.profile_image{
+		border-radius: 50%;
+		width:150px;
+		height:150px;
+		margin: auto;
+		margin-top: 14px;
+	}
+	.basic_profile ion-card-title{
+		font-size: 18px;
+    	padding: 4px;
+	}
+	.profile_data{
+		text-align : center;
+		margin: 0;
+    	width: 100%;
+	}
+	.input-wrapper{
+		display: inline;
+	}
+	.item-md.item-block .item-inner{
+		padding-right: 0;
+	}
+	.item-input ion-input, .item-input ion-textarea{
+		border: 1px solid;
+	}
+	form ion-item{
+		background-color: #f3eded !important;
+		padding-right: 16px !important;
+	}
+	.title_head{
+		margin-left: 16px;
+		font-weight: bold;
+		float: left;
+		font-size: 18px;
+	}
+	.item-md .item-button, .button-md:hover:not(.disable-hover){
+		height: 40px;
+		background: #000000;
+	}
+	.item-input .label-md, .item-select .label-md, .item-datetime .label-md,  {
+    	color: #000000;
+	}
+	.post_business{
+	    text-transform: unset;
+	}
+}

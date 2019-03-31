@@ -1,10 +1,10 @@
 
 <ion-content>
   <ion-grid>
-    <ion-row *ngIf="categoryArray">
-      <img src="{{categoryArray.background_image}}" width="100%" height="200px" />
+    <ion-row style="display: block;" *ngIf="categoryArray">
+      <img src="{{serverurl}}/{{categoryArray.background_image}}" width="100%" height="200px"/>
       <div class="logo">
-        <img src="{{categoryArray.profile_image}}">
+        <img src="{{serverurl}}/{{categoryArray.profile_image}}">
       </div>
     </ion-row>
     <ion-row class="category_details" *ngIf="categoryArray">
@@ -15,8 +15,8 @@
       <div class="direction_icon"><ion-icon ios="ios-pin" md="md-pin"></ion-icon>
         <h2>Get Direction</h2>
       </div>
-      <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        {{categoryArray.description}}</p>
+      <div [innerHTML]="categoryArray.description" class="description">
+      </div>
     </ion-row>
 
     <ion-row class="category_details">

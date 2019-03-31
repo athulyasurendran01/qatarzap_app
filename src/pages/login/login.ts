@@ -19,4 +19,7 @@ export class LoginPage {
   switchLanguage() {
     //localStorage.setItem("lang", this.lang);
   }
+  goBack(){
+    this.navCtrl.pop();
+  }
 }

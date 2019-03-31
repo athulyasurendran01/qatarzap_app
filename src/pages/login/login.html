@@ -1,5 +1,15 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons start>
+            <button (click)="goBack()">
+                <ion-icon name="arrow-round-back"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
 <ion-content>
-   <form #loginForm="ngForm" (ngSubmit)="gotoListing()" autocomplete="off">
+  <form #loginForm="ngForm" (ngSubmit)="gotoListing()" autocomplete="off">
     <ion-row>
       <ion-col>
         <ion-list inset>

@@ -27,7 +27,7 @@ export class CategoryLayoutPage implements OnInit{
 
   @ViewChild(SuperTabs) superTabs: SuperTabs;
 
-  footerScrollConfig: ScrollHideConfig = { cssProperty: 'margin-bottom', maxValue: 0 };
+  footerScrollConfig: ScrollHideConfig = { cssProperty: 'margin-bottom', maxValue: 70 };
   headerScrollConfig: ScrollHideConfig = { cssProperty: 'margin-top', maxValue: 70 };
 
   constructor(private app : App, private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {}

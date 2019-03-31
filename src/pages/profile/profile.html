@@ -1,0 +1,104 @@
+<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent" style="padding: 10px 2em;">
+   <ion-row>
+    <ion-col class="more_option">
+      <button ion-button menuToggle left style="background: no-repeat;box-shadow: none;font-size: 20px;
+    padding: 0;">
+         <ion-icon name="more"><span style="font-family: sans-serif;">More</span></ion-icon>
+     </button>
+      <ion-icon class="search_icon" ios="ios-search" md="md-search"></ion-icon>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <span class="heading">Profile</span>
+  </ion-row>
+  <ion-grid class="main_tab">
+    <ion-row class="second_tab">
+      <ion-col class="selected_col" (click)="activeProfile()" [ngClass]="(profile)?'active':''">
+        <span>Profile</span>
+      </ion-col>
+      <ion-col class="selected_col" (click)="activeList()" [ngClass]="(list)?'active':''">
+        <span>My Listing</span>
+      </ion-col>
+      <ion-col (click)="activePassword()" [ngClass]="(password)?'active':''">
+        <span>Password</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-header>
+
+<ion-content #pageContent fullscreen>
+  <ion-card class="profile_data">
+    <ion-img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeqSH96KZNjgKSLmMO76hUUkSRJHa_kMUGtJ-JJOG90w395o52" class="profile_image"></ion-img>
+    <ion-card-header class="basic_profile">
+      <ion-card-title>Name: Test User</ion-card-title>
+      <ion-card-title>Email Id: test@gmail.com</ion-card-title>
+      <ion-card-title>Last Login: 22/03/2019</ion-card-title>
+    </ion-card-header>
+  </ion-card>
+  <div class="news_content" *ngIf="profile">
+    <ion-card-title class="title_head"> My Profile Information </ion-card-title>
+    <ion-card-content>
+          <form #form="ngForm" (ngSubmit)="logForm(form)" novalidate>
+              <ion-item>
+                  <ion-label>Contact Name</ion-label>
+                  <ion-input type="text" name="name" required [(ngModel)]="personal.name" ngControl="name"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Email Address</ion-label>
+                  <ion-input type="text" name="email" required [(ngModel)]="personal.email" ngControl="email"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Mobile Number</ion-label>
+                  <ion-input type="text" name="phone" required [(ngModel)]="personal.phone" ngControl="phone"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Company Name</ion-label>
+                  <ion-input type="text" name="company" required [(ngModel)]="personal.company" ngControl="company"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Designation</ion-label>
+                  <ion-input type="text" name="designation" required [(ngModel)]="personal.designation" ngControl="designation"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Alternate Email Address</ion-label>
+                  <ion-input type="text" name="alteremail" required [(ngModel)]="personal.alteremail" ngControl="alteremail"></ion-input>
+              </ion-item>
+              <ion-item>
+                <button ion-button type="submit" block>Save</button>
+              </ion-item>
+          </form>
+    </ion-card-content>
+  </div>
+  <div class="blog_content" *ngIf="list">
+    <ion-card-title class="title_head"> My Business Listings </ion-card-title>
+    <ion-card-content>
+      <button class="btn post_business" ion-button (click)="addNewBusiness()">Post Your New Business</button>
+    </ion-card-content>
+  </div>
+  <div class="blog_content" *ngIf="password">
+     <ion-card-title class="title_head"> Change Password </ion-card-title>
+    <ion-card-content>
+      <form #form="ngForm" (ngSubmit)="changePasswordForm(form)" novalidate>
+              <ion-item>
+                  <ion-label>Old Password</ion-label>
+                  <ion-input type="text" name="name" required [(ngModel)]="personal.name" ngControl="name"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label>New Password</ion-label>
+                  <ion-input type="text" name="email" required [(ngModel)]="personal.email" ngControl="email"></ion-input>
+              </ion-item>
+              <ion-item>
+                  <ion-label>Confirm Password</ion-label>
+                  <ion-input type="text" name="phone" required [(ngModel)]="personal.phone" ngControl="phone"></ion-input>
+              </ion-item>
+              <ion-item>
+                <button ion-button type="submit" block>Submit</button>
+              </ion-item>
+      </form>
+    </ion-card-content>
+  </div>
+</ion-content>
+
+<ion-footer (click)="gotoHome()" [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+	<ion-icon ios="ios-home" md="md-home"></ion-icon><span class="footer_class">Discover</span>
+</ion-footer>

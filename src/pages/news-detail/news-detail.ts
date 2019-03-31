@@ -12,21 +12,25 @@ export class NewsDetail {
 	
 	newsdetail = [];
 	category = '';
+  serverurl = '';
 
-  	constructor(private UserService: UserService,public navCtrl: NavController, public navParams: NavParams) {
-  		this.category = this.navParams.get("category") ? this.navParams.get("category") : 'Shop';
+  	constructor(private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {
+      this.serverurl = this.UserService.getServerURL()+'/images/news/';
+  		this.category = this.navParams.get("category") ? this.navParams.get("category") : 1;
 
     	this.UserService.apiTokenRequestGet('getnewsbycategory/'+this.category, {})
         	.map(res => res.json()).subscribe(data => {
           	this.newsdetail = data.data;
-      	});
+      });
   	}
 
   	goToBack(){
 	  	this.navCtrl.push(CategoryLayoutPage);
 	}
 
-	newsReadMore(){
-		this.navCtrl.push(NewsMorePage);
+	newsReadMore(id){
+    this.navCtrl.push(NewsMorePage, {
+      news_id: id
+    });
 	}
 }

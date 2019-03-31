@@ -1,30 +1,17 @@
 news-blog-list {
+
+	.scroll-content {
+	    background: white !important;
+	}
 	.main_tab {
 		color: white;
     	font-size: 22px !important;
     	padding: 1em 0;
     	background-image: linear-gradient(#000000, #8A1C3D);
 	}
-	.more_option{
-		padding: 1em 0;
-    	font-size: 26px;
-    	padding-left: 10px !important;
-    	padding-right: 10px !important;
-    	span{
-    	    margin-left: 12px;
-    	}
-    	.search_icon{
-    		float: right;
-    	}
-	}
 	.toolbar-background-md {
     	border-color: white;
     }
-    .content-md {
-	}
-	ion-header{
-		background-image: none !important;
-	}
 	.tab_item{
 		font-size: 22px;
 	}
@@ -92,7 +79,7 @@ news-blog-list {
 		}
 		div{
 		    color: white;
-		    border-top: 8px solid white;
+		    border-top: 2px solid white;
 		    text-align: center;
 		    font-size: 16px;
 		    background-position: center;

@@ -50,3 +50,6 @@ super-tabs-container{
 .header-md::after, .tabs-md[tabsPlacement="top"] > .tabbar::after, .footer-md::before, .tabs-md[tabsPlacement="bottom"] > .tabbar::before{
 	background-image: none !important;
 }
+.ion-md-more:before {
+    padding-right: 10px;
+}

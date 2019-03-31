@@ -1,11 +1,20 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      About
-    </ion-title>
-  </ion-navbar>
+<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent" style="padding: 10px 2em;">
+   <ion-row>
+    <ion-col class="more_option">
+      <button ion-button menuToggle left style="background: no-repeat;box-shadow: none;font-size: 20px;
+    padding: 0;">
+         <ion-icon name="more">More</ion-icon>
+     </button>
+      <ion-icon class="search_icon" ios="ios-search" md="md-search"></ion-icon>
+    </ion-col>
+  </ion-row>
 </ion-header>
 
 <ion-content padding>
-
+	<h3>About Us</h3>
 </ion-content>
+
+
+<ion-footer (click)="gotoHome()" [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
+	<ion-icon ios="ios-home" md="md-home"></ion-icon><span class="footer_class">Discover</span>
+</ion-footer>

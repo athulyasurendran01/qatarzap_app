@@ -10,7 +10,9 @@ category-detail-list {
 	.tab_item{
 		font-size: 15px;
 	}
-
+	.scroll-content{
+		background: white;
+	}
 	.logo{
 	    position: absolute;
 	    z-index: 4;
@@ -46,7 +48,7 @@ category-detail-list {
 			    margin-top: 12px;
 			}
 		}
-		p{
+		.description{
 		    font-size: 16px;
     		line-height: 20px;
     		text-align: justify;

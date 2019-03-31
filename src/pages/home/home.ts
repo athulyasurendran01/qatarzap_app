@@ -49,8 +49,4 @@ export class HomePage {
     this.navCtrl.push(HomePage);
   }
 
-
-  getMore(){
-    this.app.getRootNav().push(NewsBlog);
-  }
 }

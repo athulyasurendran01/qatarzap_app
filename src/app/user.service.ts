@@ -14,4 +14,8 @@ export class UserService {
         let appurl = this.serverURL + url;
         return this.http.get(appurl, data);
     }
+
+    getServerURL(){
+        return 'https://almauna.com/laravel/backend';
+    }
 }

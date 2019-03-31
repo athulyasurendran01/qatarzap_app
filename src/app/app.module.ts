@@ -22,6 +22,7 @@ import { MapPage } from '../pages/map/map';
 import { NewsBlog } from '../pages/news-blog/news-blog';
 import { NewsDetail } from '../pages/news-detail/news-detail';
 import { NewsMorePage } from '../pages/news-detail-more/news-detail-more';
+import { ProfilePage } from '../pages/profile/profile';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -56,12 +57,20 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
     MapPage,
     NewsBlog,
     NewsDetail,
-    NewsMorePage
+    NewsMorePage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp,{
+    menuType: 'overlay',
+    platforms: {
+      ios: {
+        menuType: 'overlay',
+      }
+    }
+    }),
     SuperTabsModule.forRoot(),
     HttpClientModule,
   ],
@@ -84,7 +93,8 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
     MapPage,
     NewsBlog,
     NewsDetail,
-    NewsMorePage
+    NewsMorePage,
+    ProfilePage
   ],
   providers: [
     StatusBar,
