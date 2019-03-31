@@ -11,8 +11,20 @@ export class ProfilePage {
   profile: boolean = true;
   list: boolean = false;
   password: boolean = false;
+  newlist: boolean = false;
+  mylist: boolean = true;
   
   personal = {
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    designation: '',
+    alteremail: ''
+
+  };
+
+  business = {
     name: '',
     email: '',
     phone: '',
@@ -52,6 +64,14 @@ export class ProfilePage {
     console.log(form.value)
   }
   addNewBusiness(){
-  
+    this.mylist = false;
+    this.newlist = true;
+  }
+  viewList(){
+    this.mylist = true;
+    this.newlist = false;
+  }
+  saveBusiness(){
+
   }
 }

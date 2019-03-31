@@ -70,9 +70,80 @@
     </ion-card-content>
   </div>
   <div class="blog_content" *ngIf="list">
-    <ion-card-title class="title_head"> My Business Listings </ion-card-title>
     <ion-card-content>
+    <div *ngIf="newlist">
+      <ion-card-title class="title_head"> Add Your New Business </ion-card-title><br/>
+      <button class="btn post_business" ion-button (click)="viewList()">View List</button>
+      <form #form="ngForm" (ngSubmit)="saveBusiness(form)" novalidate>
+        <ion-item>
+          <ion-label>Company Name</ion-label>
+          <ion-input type="text" name="name" required [(ngModel)]="business.name" ngControl="name"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Company Description</ion-label>
+          <ion-input type="text" name="email" required [(ngModel)]="business.email" ngControl="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Company Category</ion-label>
+          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Company Location</ion-label>
+          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Company Phone Number</ion-label>
+          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Company Tagline</ion-label>
+          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Company Website</ion-label>
+          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Company Mail</ion-label>
+          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Facebook</ion-label>
+          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Instagram</ion-label>
+          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Linkedin</ion-label>
+          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Twitter</ion-label>
+          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Youtube</ion-label>
+          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Profile Image</ion-label>
+          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label>Background Image</ion-label>
+          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+        </ion-item>
+        <ion-item>
+          <button ion-button type="submit" block>Submit</button>
+        </ion-item>
+      </form>
+    </div>
+    <div *ngIf="mylist">
+      <ion-card-title class="title_head"> My Business Listings </ion-card-title>
       <button class="btn post_business" ion-button (click)="addNewBusiness()">Post Your New Business</button>
+    </div>
     </ion-card-content>
   </div>
   <div class="blog_content" *ngIf="password">
