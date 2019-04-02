@@ -29,6 +29,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { Geolocation } from '@ionic-native/geolocation';
 
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
+
 import { HttpModule } from '@angular/http';
 
 import { HttpClientModule, HttpClient } from '@angular/common/http';
@@ -99,6 +102,8 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
+    FileTransfer,
     UserService,
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}

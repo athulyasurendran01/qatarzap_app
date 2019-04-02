@@ -29,6 +29,7 @@
 <ion-content #pageContent fullscreen>
   <ion-card class="profile_data">
     <ion-img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeqSH96KZNjgKSLmMO76hUUkSRJHa_kMUGtJ-JJOG90w395o52" class="profile_image"></ion-img>
+    <span (click)="upload('profile')" >Upload</span>
     <ion-card-header class="basic_profile">
       <ion-card-title>Name: Test User</ion-card-title>
       <ion-card-title>Email Id: test@gmail.com</ion-card-title>
@@ -129,11 +130,11 @@
         </ion-item>
         <ion-item>
           <ion-label>Profile Image</ion-label>
-          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+          <span (click)="upload('profile')" >Upload</span>
         </ion-item>
         <ion-item>
           <ion-label>Background Image</ion-label>
-          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+          <span (click)="upload('profile')" >Upload</span>
         </ion-item>
         <ion-item>
           <button ion-button type="submit" block>Submit</button>
