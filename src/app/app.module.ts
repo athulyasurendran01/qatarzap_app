@@ -9,6 +9,7 @@ import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
 import { HomePage } from '../pages/home/home';
 import { LayoutPage } from '../pages/layout/layout';
+import { RegistrationPage } from '../pages/registration/registration';
 import { LoginPage } from '../pages/login/login';
 import { ListPage } from '../pages/list/list';
 import { Explore } from '../pages/explore/explore';
@@ -49,6 +50,7 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
     HomePage,
     LayoutPage,
     LoginPage,
+    RegistrationPage,
     ListPage,
     Explore,
     ImageListPage,
@@ -85,6 +87,7 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
     HomePage,
     LayoutPage,
     LoginPage,
+    RegistrationPage,
     ListPage,
     Explore,
     ImageListPage,

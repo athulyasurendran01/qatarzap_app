@@ -15,6 +15,11 @@ export class UserService {
         return this.http.get(appurl, data);
     }
 
+    apiTokenRequest(url, data): Observable<any> {
+        let appurl = this.serverURL + url;
+        return this.http.post(appurl, data);
+    }
+
     getServerURL(){
         return 'https://almauna.com/laravel/backend';
     }

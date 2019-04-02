@@ -4,18 +4,14 @@ import { ListPage } from '../list/list';
 import { UserService } from '../../app/user.service';
 
 @Component({
-  selector: 'page-login',
-  templateUrl: 'login.html'
+  selector: 'page-register',
+  templateUrl: 'registration.html'
 })
-export class LoginPage {
+export class RegistrationPage {
   constructor(private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {
-  /*  this.lang = 'en';
-    localStorage.setItem("lang", this.lang);
-    //this.translate.setDefaultLang('en');
-    //this.translate.use('en');*/
   }
-  gotoLogin(form){
-    this.UserService.apiTokenRequest('login', form.value)
+  gotoRegister(form){
+    this.UserService.apiTokenRequest('register', form.value)
 	    .map(res => res.json()).subscribe(data => {
         console.log(data)
         //localStorage.setItem("userId", data.userid);

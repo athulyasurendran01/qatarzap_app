@@ -10,6 +10,7 @@ import { MapPage } from '../pages/map/map';
 import { NewsBlog } from '../pages/news-blog/news-blog';
 import { ProfilePage } from '../pages/profile/profile';
 import { LoginPage } from '../pages/login/login';
+import { RegistrationPage } from '../pages/registration/registration';
 
 @Component({
   templateUrl: 'app.html'
@@ -19,6 +20,7 @@ export class MyApp {
 
   rootPage: any = HomePage;
   lang : string = "eng";
+  userId: string = '';
 
   pages: Array<{title: string, title_arabic:string, icon: string, component: any}>;
 
@@ -45,6 +47,7 @@ export class MyApp {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      this.userId = localStorage.getItem("userId");
     });
   }
 
@@ -66,6 +69,11 @@ export class MyApp {
 
   goToLogin(){
     this.nav.setRoot(LoginPage);
+    this.menuCtrl.close();
+  }
+
+  goToRegister(){
+    this.nav.setRoot(RegistrationPage);
     this.menuCtrl.close();
   }
 
