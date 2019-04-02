@@ -18,6 +18,7 @@ export class ProfilePage {
   password: boolean = false;
   newlist: boolean = false;
   mylist: boolean = true;
+  userid: number = 0;
   
   personal = {
     name: '',
@@ -58,7 +59,16 @@ export class ProfilePage {
   //  });
 
   //localStorage.getItem("userId");
-    this.UserService.apiTokenRequestGet('user/'+1, {})
+    this.userid = 1;
+    this.UserService.apiTokenRequestGet('user/'+this.userid, {})
+	    .map(res => res.json()).subscribe(data => {
+        console.log(data)
+	    },
+		error => {
+			alert(error);
+    });
+
+    this.UserService.apiTokenRequestGet('get-business/'+this.userid, {})
 	    .map(res => res.json()).subscribe(data => {
         console.log(data)
 	    },
@@ -69,7 +79,7 @@ export class ProfilePage {
 
   logForm(form) {
     console.log(form.value)
-    this.UserService.apiTokenRequest('update-profile', form.value)
+    this.UserService.apiTokenRequest('update-profile/'+1, form.value)
 	    .map(res => res.json()).subscribe(data => {
         console.log(data)
 	    },
@@ -96,7 +106,7 @@ export class ProfilePage {
     this.password = true;
   }
   changePasswordForm(form){
-    this.UserService.apiTokenRequest('change-password', form.value)
+    this.UserService.apiTokenRequest('change-password/'+1, form.value)
 	    .map(res => res.json()).subscribe(data => {
         console.log(data)
 	    },
@@ -112,8 +122,29 @@ export class ProfilePage {
     this.mylist = true;
     this.newlist = false;
   }
+
   saveBusiness(form){
     this.UserService.apiTokenRequest('business', form.value)
+	    .map(res => res.json()).subscribe(data => {
+        console.log(data)
+	    },
+		error => {
+			alert(error);
+    });
+  }
+
+  editBusiness(id){
+    this.UserService.apiTokenRequestGet('edit-business/'+id, {})
+	    .map(res => res.json()).subscribe(data => {
+        console.log(data)
+	    },
+		error => {
+			alert(error);
+    });
+  }
+
+  deleteBusiness(id){
+    this.UserService.apiTokenRequestGet('delete-business/'+id, {})
 	    .map(res => res.json()).subscribe(data => {
         console.log(data)
 	    },
