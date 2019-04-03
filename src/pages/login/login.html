@@ -9,17 +9,24 @@
 </ion-header>
 
 <ion-content>
-  <form #loginForm="ngForm" (ngSubmit)="gotoLogin(form)" autocomplete="off">
+  <form [formGroup]="loginForm" (ngSubmit)="gotoLogin(loginForm)" autocomplete="off">
     <ion-row>
       <ion-col>
         <ion-list inset>
           <ion-item>
             <ion-icon class="ion-ios-person-outline" item-left></ion-icon>
-            <ion-input type="email" name="username" placeholder="Username" id="loginField"></ion-input> 
+            <ion-input type="email" name="username" formControlName="username" placeholder="Username"></ion-input> 
           </ion-item>
+          <!-- <div>
+            <ng-container *ngFor="let validation of validation_messages.username" >
+              <div *ngIf="loginForm.get('username').hasError(validation.type)">
+                <p>{{validation.message}}</p>
+              </div>
+            </ng-container>
+          </div> -->
           <ion-item>
             <ion-icon name="ios-lock-outline" item-left></ion-icon>
-            <ion-input type="password" name="password" placeholder="Password" id="loginField"></ion-input> 
+            <ion-input type="password" name="password" placeholder="Password" formControlName="password"></ion-input> 
           </ion-item>
         </ion-list>
       </ion-col>
