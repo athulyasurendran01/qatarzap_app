@@ -59,4 +59,13 @@ profile-page {
 	.post_business{
 	    text-transform: unset;
 	}
+	.list_business{
+		color: black;
+	}
+	.list_business ion-col{
+		border: 1px solid #8c8989;
+	}
+	.list_business button{
+		width: 20px;
+	}
 }

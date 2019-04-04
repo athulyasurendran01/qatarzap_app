@@ -1,0 +1,41 @@
+page-register {
+	.scroll-content{
+    	padding: 12px;
+	}
+	h3{
+		text-align: center;
+	    border-bottom: 1px solid white;
+	    width: 150px;
+	    margin: auto;
+	    padding: 20px 0;
+	}
+	.input-wrapper{
+		display: inline;
+	}
+	.item-md.item-block .item-inner{
+		padding-right: 0;
+	}
+	.item-input ion-input, .item-input ion-textarea{
+		border: 1px solid;
+	}
+	form ion-input{
+		background: white;
+		border: 0 !important;
+	}
+	form ion-label{
+		color: white !important;
+	}
+	.item-md{
+		background: none;
+	}
+	.submit_section{
+		display: flex;
+	}
+	.submit_section button{
+		width: 45%;
+	    margin-right: 15px;
+	    background: white;
+	    color: black;
+	}
+
+}
