@@ -75,64 +75,65 @@
     <div *ngIf="newlist">
       <button class="btn post_business" ion-button (click)="viewList()">View List</button>
       <ion-card-title class="title_head"> Add Your New Business </ion-card-title>
-      <form #form="ngForm" (ngSubmit)="saveBusiness(form)" novalidate>
+      <form #businessform="ngForm" (ngSubmit)="saveBusiness(businessform)" novalidate>
+          <input type="hidden" name="id" [(ngModel)]="business.id" >
         <ion-item>
           <ion-label>Company Name</ion-label>
-          <ion-input type="text" name="name" required [(ngModel)]="business.name" ngControl="name"></ion-input>
+          <ion-input type="text" name="name" required [(ngModel)]="business.name"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Company Description</ion-label>
-          <ion-input type="text" name="email" required [(ngModel)]="business.email" ngControl="email"></ion-input>
+          <ion-input type="text" name="description" required [(ngModel)]="business.description"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Company Category</ion-label>
-          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+          <ion-input type="text" name="category" required [(ngModel)]="business.category"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Company Location</ion-label>
-          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+          <ion-input type="text" name="location" required [(ngModel)]="business.location"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Company Phone Number</ion-label>
-          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+          <ion-input type="text" name="phone" required [(ngModel)]="business.phone"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Company Tagline</ion-label>
-          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+          <ion-input type="text" name="tagline" required [(ngModel)]="business.tagline"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Company Website</ion-label>
-          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+          <ion-input type="text" name="website" required [(ngModel)]="business.website"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Company Mail</ion-label>
-          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+          <ion-input type="text" name="mail" required [(ngModel)]="business.mail"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Facebook</ion-label>
-          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+          <ion-input type="text" name="facebook" required [(ngModel)]="business.facebook"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Instagram</ion-label>
-          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+          <ion-input type="text" name="instagram" required [(ngModel)]="business.instagram"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Linkedin</ion-label>
-          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+          <ion-input type="text" name="linkedin" required [(ngModel)]="business.linkedin"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Twitter</ion-label>
-          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+          <ion-input type="text" name="twitter" required [(ngModel)]="business.twitter"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label>Youtube</ion-label>
-          <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
+          <ion-input type="text" name="youtube" required [(ngModel)]="business.youtube"></ion-input>
         </ion-item>
         <ion-item>
-          <button ion-button type="button" (click)="upload('profile')" block>Upload Profile Picture</button>
+          <button ion-button type="button" (click)="upload('company_pic')" block>Upload Profile Picture</button>
         </ion-item>
         <ion-item>
-          <button ion-button type="button" (click)="upload('profile')" block>Upload Background Image</button>
+          <button ion-button type="button" (click)="upload('background_pic')" block>Upload Background Image</button>
         </ion-item>
         <ion-item>
           <button ion-button type="submit" block>Submit</button>
@@ -175,18 +176,18 @@
   <div class="blog_content" *ngIf="password">
      <ion-card-title class="title_head left_"> Change Password </ion-card-title>
     <ion-card-content>
-      <form #form="ngForm" (ngSubmit)="changePasswordForm(form)" novalidate>
+      <form #changepasswordform="ngForm" (ngSubmit)="changePasswordForm(changepasswordform)" novalidate>
               <ion-item>
                   <ion-label>Old Password</ion-label>
-                  <ion-input type="text" name="name" required [(ngModel)]="personal.name" ngControl="name"></ion-input>
+                  <ion-input type="password" name="oldpassword" required [(ngModel)]="passwordform.oldpassword"></ion-input>
               </ion-item>
               <ion-item>
                   <ion-label>New Password</ion-label>
-                  <ion-input type="text" name="email" required [(ngModel)]="personal.email" ngControl="email"></ion-input>
+                  <ion-input type="password" name="newpassword" required [(ngModel)]="passwordform.newpassword"></ion-input>
               </ion-item>
               <ion-item>
                   <ion-label>Confirm Password</ion-label>
-                  <ion-input type="text" name="phone" required [(ngModel)]="personal.phone" ngControl="phone"></ion-input>
+                  <ion-input type="password" name="confirmpassword" required [(ngModel)]="passwordform.confirmpassword"></ion-input>
               </ion-item>
               <ion-item>
                 <button ion-button type="submit" block>Submit</button>

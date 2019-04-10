@@ -4,7 +4,7 @@ import { LayoutPage } from '../layout/layout';
 import { ScrollHideConfig } from '../../app/scroll-hide';
 import { UserService } from '../../app/user.service';
 
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
@@ -21,47 +21,38 @@ export class ProfilePage {
   userid: string;
   personal_details: any;
   business_lists: any;
+  business: {
+    name: '',
+    description: '',
+    category: '',
+    location: '',
+    phone: '',
+    tagline: '',
+    website: '',
+    mail: '',
+    facebook: '',
+    instagram: '',
+    linkedin: '',
+    twitter: '',
+    youtube: '',
+    profile_pic: '',
+    background_pic: ''
+  };
   serverurl: string;
   imageurl: string = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeqSH96KZNjgKSLmMO76hUUkSRJHa_kMUGtJ-JJOG90w395o52';
 
-  personal = {
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    designation: '',
-    alteremail: ''
-
+  passwordform = {
+    oldpassword: '',
+    newpassword: '',
+    confirmpassword: ''
   };
-
-  business = {
-    name: '',
-    email: '',
-    phone: '',
-    company: '',
-    designation: '',
-    alteremail: ''
-
-  };
-
   
   footerScrollConfig: ScrollHideConfig = { cssProperty: 'margin-bottom', maxValue: 70 };
   headerScrollConfig: ScrollHideConfig = { cssProperty: 'margin-top', maxValue: 70 };
 
-  constructor(private UserService: UserService, public navCtrl: NavController, public navParams: NavParams, private transfer: FileTransfer, private camera: Camera) {
-  //   this.personal = new FormGroup({
-  //     name: new FormControl('', Validators.required),
-  //     email: new FormControl('', Validators.compose([
-  //       Validators.required,
-  //       Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
-  //     ])),
-  //     phone: new FormControl('', Validators.required),
-  //     company: new FormControl('', Validators.required),
-  //     designation: new FormControl('', Validators.required),
-  //     alteremail: new FormControl('',Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$'))
-
-  //  });
-
+  constructor(private UserService: UserService, public navCtrl: NavController, 
+    public navParams: NavParams, private transfer: FileTransfer, private camera: Camera) {
+      
     this.serverurl = this.UserService.getServerURL();
     this.userid = localStorage.getItem("userId");
     this.UserService.apiTokenRequestGet('user/'+this.userid, {})
@@ -109,7 +100,7 @@ export class ProfilePage {
     this.password = true;
   }
   changePasswordForm(form){
-    this.UserService.apiTokenRequest('change-password/'+1, form.value)
+    this.UserService.apiTokenRequest('change-password/'+this.userid, form.value)
 	    .map(res => res.json()).subscribe(data => {
         console.log(data)
 	    },
@@ -127,22 +118,33 @@ export class ProfilePage {
   }
 
   saveBusiness(form){
-    this.UserService.apiTokenRequest('business', form.value)
-	    .map(res => res.json()).subscribe(data => {
-        console.log(data)
-	    },
-		error => {
-			alert(error);
-    });
+    console.log()
+    if(form.value.id){
+      var id = form.value.id;
+      this.UserService.apiTokenRequest('edit-business/'+id, {})
+        .map(res => res.json()).subscribe(data => {
+          console.log(data)
+        },
+      error => {
+        alert(error);
+      });
+    }else{
+      this.UserService.apiTokenRequest('business', form.value)
+        .map(res => res.json()).subscribe(data => {
+          console.log(data)
+        },
+      error => {
+        alert(error);
+      });
+    }
   }
 
   editBusiness(id){
-    this.UserService.apiTokenRequest('edit-business/'+id, {})
-	    .map(res => res.json()).subscribe(data => {
-        console.log(data)
-	    },
-		error => {
-			alert(error);
+    this.business_lists.filter((item) => {
+      if (item.id.indexOf(id) >= 0) {
+        this.business = item;
+        this.addNewBusiness();
+      }
     });
   }
 
@@ -157,7 +159,7 @@ export class ProfilePage {
   }
 
   upload(type){
-
+    
     const options: CameraOptions = {
       quality: 50,
       correctOrientation: true,
@@ -169,14 +171,20 @@ export class ProfilePage {
     }
     var this_ = this;
     this.camera.getPicture(options).then((imageData) => {
-      this_.imageurl = "data:image/jpeg;base64," + imageData;
-      this_.UserService.apiTokenRequest('upload-profilepic/'+this_.userid, {"image_url": imageData})
-        .map(res => res.json()).subscribe(result => {
-          alert(JSON.stringify(result));
-      },
-      error => {
-        alert(error);
-      });
+      if(type == 'profile'){
+        this_.imageurl = "data:image/jpeg;base64," + imageData;
+        this_.UserService.apiTokenRequest('upload-profilepic/'+this_.userid, {"image_url": imageData})
+          .map(res => res.json()).subscribe(result => {
+            alert(JSON.stringify(result));
+        },
+        error => {
+          alert(error);
+        });
+      }else if(type == 'company_pic'){
+        this_.business.profile_pic = imageData;
+      }else{
+        this_.business.background_pic = imageData;
+      }
     },(err) => {
         alert(err)
     });
