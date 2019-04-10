@@ -28,41 +28,41 @@
 
 <ion-content #pageContent fullscreen>
   <ion-card class="profile_data">
-    <ion-img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeqSH96KZNjgKSLmMO76hUUkSRJHa_kMUGtJ-JJOG90w395o52" class="profile_image"></ion-img>
-    <span (click)="upload('profile')" >Upload</span>
-    <ion-card-header class="basic_profile">
-      <ion-card-title>Name: Test User</ion-card-title>
-      <ion-card-title>Email Id: test@gmail.com</ion-card-title>
+    <ion-img src="{{imageurl}}" class="profile_image"></ion-img>
+    <span (click)="upload('profile')" class="upload_icon"><ion-icon name="create"></ion-icon></span>
+    <ion-card-header class="basic_profile" *ngIf="personal_details">
+      <ion-card-title>Name: {{personal_details.name}}</ion-card-title>
+      <ion-card-title>Email Id: {{personal_details.email}}</ion-card-title>
       <ion-card-title>Last Login: 22/03/2019</ion-card-title>
     </ion-card-header>
   </ion-card>
   <div class="news_content" *ngIf="profile">
-    <ion-card-title class="title_head"> My Profile Information </ion-card-title>
+    <ion-card-title class="title_head left_"> My Profile Information </ion-card-title>
     <ion-card-content>
-          <form #form="ngForm" (ngSubmit)="logForm(form)" novalidate>
+          <form #form="ngForm" (ngSubmit)="updateProfile(form)" novalidate *ngIf="personal_details">
               <ion-item>
                   <ion-label>Contact Name</ion-label>
-                  <ion-input type="text" name="name" required [(ngModel)]="personal.name" ngControl="name"></ion-input>
+                  <ion-input type="text" name="name" required [(ngModel)]="personal_details.name" ngControl="name"></ion-input>
               </ion-item>
               <ion-item>
                   <ion-label>Email Address</ion-label>
-                  <ion-input type="text" name="email" required [(ngModel)]="personal.email" ngControl="email"></ion-input>
+                  <ion-input type="text" name="email" required [(ngModel)]="personal_details.email" ngControl="email"></ion-input>
               </ion-item>
               <ion-item>
                   <ion-label>Mobile Number</ion-label>
-                  <ion-input type="text" name="phone" required [(ngModel)]="personal.phone" ngControl="phone"></ion-input>
+                  <ion-input type="text" name="phone" required [(ngModel)]="personal_details.phone" ngControl="phone"></ion-input>
               </ion-item>
               <ion-item>
                   <ion-label>Company Name</ion-label>
-                  <ion-input type="text" name="company" required [(ngModel)]="personal.company" ngControl="company"></ion-input>
+                  <ion-input type="text" name="company" required [(ngModel)]="personal_details.company" ngControl="company"></ion-input>
               </ion-item>
               <ion-item>
                   <ion-label>Designation</ion-label>
-                  <ion-input type="text" name="designation" required [(ngModel)]="personal.designation" ngControl="designation"></ion-input>
+                  <ion-input type="text" name="designation" required [(ngModel)]="personal_details.designation" ngControl="designation"></ion-input>
               </ion-item>
               <ion-item>
                   <ion-label>Alternate Email Address</ion-label>
-                  <ion-input type="text" name="alteremail" required [(ngModel)]="personal.alteremail" ngControl="alteremail"></ion-input>
+                  <ion-input type="text" name="alteremail" required [(ngModel)]="personal_details.alteremail" ngControl="alteremail"></ion-input>
               </ion-item>
               <ion-item>
                 <button ion-button type="submit" block>Update</button>
@@ -73,8 +73,8 @@
   <div class="blog_content" *ngIf="list">
     <ion-card-content>
     <div *ngIf="newlist">
-      <ion-card-title class="title_head"> Add Your New Business </ion-card-title><br/>
       <button class="btn post_business" ion-button (click)="viewList()">View List</button>
+      <ion-card-title class="title_head"> Add Your New Business </ion-card-title>
       <form #form="ngForm" (ngSubmit)="saveBusiness(form)" novalidate>
         <ion-item>
           <ion-label>Company Name</ion-label>
@@ -129,21 +129,19 @@
           <ion-input type="text" name="phone" required [(ngModel)]="business.phone" ngControl="phone"></ion-input>
         </ion-item>
         <ion-item>
-          <ion-label>Profile Image</ion-label>
-          <span (click)="upload('profile')" >Upload</span>
+          <button ion-button type="button" (click)="upload('profile')" block>Upload Profile Picture</button>
         </ion-item>
         <ion-item>
-          <ion-label>Background Image</ion-label>
-          <span (click)="upload('profile')" >Upload</span>
+          <button ion-button type="button" (click)="upload('profile')" block>Upload Background Image</button>
         </ion-item>
         <ion-item>
           <button ion-button type="submit" block>Submit</button>
         </ion-item>
       </form>
     </div>
-    <div *ngIf="mylist">
+    <div *ngIf="mylist && business_lists">
+      <button *ngIf="business_lists.length <= 3" class="btn post_business" ion-button (click)="addNewBusiness()">Post Your New Business</button>
       <ion-card-title class="title_head"> My Business Listings </ion-card-title>
-      <button class="btn post_business" ion-button (click)="addNewBusiness()">Post Your New Business</button>
       <ion-grid class="list_business">
         <ion-row>
           <ion-col size="3">
@@ -157,16 +155,16 @@
           </ion-col>
         </ion-row>
         
-        <ion-row>
+        <ion-row *ngFor="let item of business_lists; let i = index">
           <ion-col size="3">
-            1
+            {{i+1}}
           </ion-col>
           <ion-col size="3">
-            Wipro
+            {{item.title}}
           </ion-col>
           <ion-col size="3">
-            <button (click)="editBusiness()" class="action_button" ion-button><ion-icon ios="ios-home" md="md-home"></ion-icon></button>
-            <button (click)="deleteBusiness()" class="action_button" ion-button><ion-icon ios="ios-trash" md="md-trash"></ion-icon></button>
+            <button (click)="editBusiness(item.id)" class="action_button" ion-button><ion-icon name="create"></ion-icon></button>
+            <button (click)="deleteBusiness(item.id)" class="action_button" ion-button><ion-icon ios="ios-trash" md="md-trash"></ion-icon></button>
           </ion-col>
         </ion-row>
 
@@ -175,7 +173,7 @@
     </ion-card-content>
   </div>
   <div class="blog_content" *ngIf="password">
-     <ion-card-title class="title_head"> Change Password </ion-card-title>
+     <ion-card-title class="title_head left_"> Change Password </ion-card-title>
     <ion-card-content>
       <form #form="ngForm" (ngSubmit)="changePasswordForm(form)" novalidate>
               <ion-item>

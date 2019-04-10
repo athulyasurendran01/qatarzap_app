@@ -1,28 +1,28 @@
 <ion-content>
   <h3>Sign Up</h3>
-  <form #registerForm="ngForm" (ngSubmit)="gotoRegister(registerForm)" autocomplete="off">
+  <form [formGroup]="registerForm" (ngSubmit)="gotoRegister(registerForm)" autocomplete="off">
     <ion-row>
       <ion-col>
         <ion-list inset>
           <ion-item>
             <ion-label>Contact Name</ion-label>
-            <ion-input type="text" name="username" placeholder="Username" ></ion-input> 
+            <ion-input type="text" name="name" formControlName="name" placeholder="Name" ></ion-input> 
           </ion-item>
           <ion-item>
             <ion-label>Your Email</ion-label>
-            <ion-input type="email" name="email" placeholder="Email" ></ion-input> 
+            <ion-input type="email" name="email" formControlName="email" placeholder="Email" ></ion-input> 
           </ion-item>
           <ion-item>
             <ion-label>Password</ion-label>
-            <ion-input type="password" name="password" placeholder="Password" ></ion-input> 
+            <ion-input type="password" name="password" formControlName="password" placeholder="Password" ></ion-input> 
           </ion-item>
           <ion-item>
             <ion-label>Confirm Password</ion-label>
-            <ion-input type="password" name="confirm_password" placeholder="Confirm Password" ></ion-input>
+            <ion-input type="password" name="confirm_password" formControlName="confirm_password" placeholder="Confirm Password" ></ion-input>
           </ion-item>
           <ion-item>
             <ion-label>Mobile Number</ion-label>
-            <ion-input type="text" name="phone" placeholder="Mobile Number" ></ion-input>
+            <ion-input type="text" name="phone" formControlName="phone" placeholder="Mobile Number" ></ion-input>
           </ion-item>
         </ion-list>
       </ion-col>

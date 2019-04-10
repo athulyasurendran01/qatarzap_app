@@ -14,6 +14,15 @@ profile-page {
 	    text-align: center;
 	    padding: 8px;
 	}
+	.upload_icon{
+		color: white;
+	    position: absolute;
+	    margin-top: 45px;
+	    margin-left: -18px;
+	    background: black;
+	    padding: 7px;
+	    border-radius: 8px;
+	}
 	.profile_image{
 		border-radius: 50%;
 		width:150px;
@@ -44,10 +53,12 @@ profile-page {
 		padding-right: 16px !important;
 	}
 	.title_head{
-		margin-left: 16px;
 		font-weight: bold;
 		float: left;
 		font-size: 18px;
+	}
+	.left_{
+		margin-left: 16px;
 	}
 	.item-md .item-button, .button-md:hover:not(.disable-hover){
 		height: 40px;
@@ -58,6 +69,7 @@ profile-page {
 	}
 	.post_business{
 	    text-transform: unset;
+	    display: flex;
 	}
 	.list_business{
 		color: black;

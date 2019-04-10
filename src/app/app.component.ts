@@ -25,8 +25,9 @@ export class MyApp {
   pages: Array<{title: string, title_arabic:string, icon: string, component: any}>;
 
   constructor(public menuCtrl: MenuController, public platform: Platform, public statusBar: StatusBar, public splashScreen: SplashScreen) {
-    
-    this.lang = window.localStorage.language;
+    if(window.localStorage.language){
+      this.lang = window.localStorage.language;
+    }
     this.initializeApp();
 
     this.pages = [
@@ -84,6 +85,5 @@ export class MyApp {
     }else{
       window.localStorage.language = 'arabic';
     }
-    //window.location.reload();
   }
 }

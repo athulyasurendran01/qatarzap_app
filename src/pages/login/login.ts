@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { ListPage } from '../list/list';
+import { HomePage } from '../home/home';
 import { UserService } from '../../app/user.service';
 import { Validators, FormBuilder, FormGroup } from '@angular/forms';
 
@@ -12,13 +12,13 @@ export class LoginPage {
 
   loginForm : FormGroup;
   validation_messages = {
-        'username': [{ type: 'pattern', message: 'Please enter a number like 12345678/00.' }],
+        'email': [{ type: 'pattern', message: 'Please enter a number like 12345678/00.' }],
         'password': [{ type: 'pattern', message: 'Please enter a number like 12345678/00.' }]
   }
 
   constructor(public formBuilder: FormBuilder, private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {
     this.loginForm = this.formBuilder.group({
-      username: ['', Validators.required],
+      email: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
@@ -27,8 +27,9 @@ export class LoginPage {
     if (this.loginForm.valid) {
       this.UserService.apiTokenRequest('login', form.value)
         .map(res => res.json()).subscribe(data => {
-          console.log(data)
-          this.navCtrl.push(ListPage);
+          localStorage.setItem("userId", data.data.id);
+          this.navCtrl.push(HomePage);
+          window.location.reload();
         },
       error => {
         alert(error);
