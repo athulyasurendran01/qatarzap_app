@@ -28,6 +28,13 @@ super-tabs:not([no-shadow]) > super-tabs-toolbar > ion-toolbar.toolbar::after, s
 super-tabs-container{
 	margin-top: 3em;
 }
+.search_box{
+	display: flex;
+	button{
+		height: 42px;
+    	margin-top: 8px;
+	}
+}
 .title{
 	text-transform: none;
 }

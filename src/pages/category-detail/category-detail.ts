@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { CategoryPage } from '../categories/category';
 import { UserService } from '../../app/user.service';
+import { LayoutPage } from '../layout/layout';
 
 @Component({
   selector: 'category-detail-list',
@@ -35,5 +36,9 @@ export class CategoryDetailPage {
   
   goToBack(){
   	this.navCtrl.push(CategoryPage);
+  }
+
+  gotoHome(){
+    this.navCtrl.push(LayoutPage);
   }
 }

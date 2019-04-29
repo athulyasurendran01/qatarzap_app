@@ -17,22 +17,35 @@ export class CategoryLayoutPage implements OnInit{
   
   results: any = [];
   categories: any = [];
-  category: any = [];
+  category: any = 'shop';
   subCate: any = [];
   pages: any = [
       { pageName: CategoryPage, title: 'Shop', id: 'shop'}
   ];
 
   selectedTab = 0;
-
+  
   @ViewChild(SuperTabs) superTabs: SuperTabs;
 
   footerScrollConfig: ScrollHideConfig = { cssProperty: 'margin-bottom', maxValue: 70 };
   headerScrollConfig: ScrollHideConfig = { cssProperty: 'margin-top', maxValue: 70 };
 
   constructor(private app : App, private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {}
+  
+  ngAfterViewInit() {
+    let this_ = this;
+    setTimeout(() => {
+      this.pages.filter(function (category) {
+        if(category.title===this_.category){
+          this_.selectedTab = category.index;
+          this_.superTabs.slideTo(this_.selectedTab);
+        }      
+      });
+    }, 600);
+  }
 
-  ngOnInit(){
+  ngOnInit(){    
+    this.category = this.navParams.get("category"); 
     this.UserService.apiTokenRequestGet('categories/eng', {})
       .map(res => res.json()).subscribe(data => {
         var response = data.data;
@@ -40,7 +53,8 @@ export class CategoryLayoutPage implements OnInit{
           this.pages.push({
             pageName: CategoryPage,
             title: response[i].name,
-            id : response[i].name
+            id : response[i].name,
+            index: i
           });
         }
     });

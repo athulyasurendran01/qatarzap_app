@@ -20,10 +20,12 @@ export class LayoutPage {
 
   pages: any=[];
   selectedTab = 0;
+  toggled_search: boolean = false;
  
   @ViewChild(SuperTabs) superTabs: SuperTabs;
 
   constructor(private app : App, public navCtrl: NavController) {
+    this.toggled_search = false;
     if((window.localStorage.language) && (window.localStorage.language != 'eng')){
       this.pages = [
           { pageName: Explore, title: 'استكشاف  ', id: 'exploreTab'},
@@ -50,6 +52,9 @@ export class LayoutPage {
     this.navCtrl.push(LayoutPage);
   }
 
+  toggleSearch(){
+    this.toggled_search = !this.toggled_search;
+  }
 
   getMore(){
     this.app.getRootNav().push(NewsBlog);

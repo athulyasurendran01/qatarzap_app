@@ -39,7 +39,7 @@ export class ProfilePage {
     background_pic: ''
   };
   serverurl: string;
-  imageurl: string = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSeqSH96KZNjgKSLmMO76hUUkSRJHa_kMUGtJ-JJOG90w395o52';
+  imageurl: string = '../../assets/imgs/no-image.png';
 
   passwordform = {
     oldpassword: '',

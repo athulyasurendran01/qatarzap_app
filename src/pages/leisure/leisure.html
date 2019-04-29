@@ -8,5 +8,21 @@
         <div (click)="getList(item.name)">{{item.name}}<ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon></div>
       </ion-col>
     </ion-row>
+    <ion-row class="leisure_list" *ngFor="let item of leisure_items; let i = index">
+        <ion-col col-auto col-sm class="leisure_left">
+          <div class="list_icon"><ion-icon ios="ios-restaurant" md="{{item.image}}"></ion-icon></div>
+        </ion-col>
+        <ion-col class="leisure_right">
+          <div (click)="getList(item.name)">{{item.name}}<ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon></div>
+        </ion-col>
+      </ion-row>
+      <ion-row class="leisure_list" *ngFor="let item of leisure_items; let i = index">
+          <ion-col col-auto col-sm class="leisure_left">
+            <div class="list_icon"><ion-icon ios="ios-restaurant" md="{{item.image}}"></ion-icon></div>
+          </ion-col>
+          <ion-col class="leisure_right">
+            <div (click)="getList(item.name)">{{item.name}}<ion-icon ios="ios-arrow-forward" md="md-arrow-forward"></ion-icon></div>
+          </ion-col>
+        </ion-row>
   </ion-grid>
 </ion-content>

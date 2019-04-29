@@ -4,6 +4,7 @@ import { ScrollHideConfig } from '../../app/scroll-hide';
 import { CategoryDetailPage } from '../category-detail/category-detail';
 import { MapPage } from '../map/map';
 import { UserService } from '../../app/user.service';
+import { LayoutPage } from '../layout/layout';
 
 @Component({
   selector: 'category-list',
@@ -52,4 +53,7 @@ export class CategoryPage implements OnInit{
     this.app.getRootNav().push(MapPage, {category: id});
   }
 
+  gotoHome(){
+    this.navCtrl.push(LayoutPage);
+  }
 }

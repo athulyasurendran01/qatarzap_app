@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { NewsDetail } from '../news-detail/news-detail';
 //import { BlogDetailPage } from '../blog-detail/blog-detail';
 import { UserService } from '../../app/user.service';
+import { LayoutPage } from '../layout/layout';
 
 @Component({
   selector: 'news-blog-list',
@@ -39,5 +40,9 @@ export class NewsBlog {
 
     blogDetail(){
       //this.navCtrl.push(BlogDetailPage);
+    }
+    
+    gotoHome(){
+      this.navCtrl.push(LayoutPage);
     }
 }

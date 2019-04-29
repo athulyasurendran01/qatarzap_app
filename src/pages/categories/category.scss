@@ -64,7 +64,10 @@ category-list {
 		    margin-left: 1em;
 	    	margin-right: 1em;
 	    	color: black;
-	    	margin-top: 12px;
+			margin-top: 12px;
+			h3{
+				text-transform: capitalize;
+			}
 	    }
 	    .arraow_location{
 	    	height: 60px;

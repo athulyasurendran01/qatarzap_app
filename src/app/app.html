@@ -10,13 +10,11 @@
   </ion-header>
   <ion-content>
     <ion-list class="menu_list">
-      <div  *ngIf="userId">
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           <ion-icon class="menu_icon" name="{{p.icon}}"></ion-icon>
           <span *ngIf="lang == 'eng'" class="menu_label">{{p.title}}</span>
           <span *ngIf="lang == 'arabic'" class="menu_label">{{p.title_arabic}}</span>
         </button>
-      </div>
       <ion-item class="login_section" *ngIf="!userId">
         <button (click)="goToLogin()" class="login_button" ion-button type="button" block>Login</button>
         <h5>Forget Password ? <br/> or </h5> 

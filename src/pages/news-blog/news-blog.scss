@@ -74,6 +74,9 @@ news-blog-list {
 	    }
 	}
 	.news_content{
+		span{
+			text-transform: capitalize;
+		}
 		.col{
 			padding: 0;
 		}

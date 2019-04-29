@@ -5,7 +5,15 @@
 	 padding: 0;">
 		  <ion-icon name="more"><span style="font-family: sans-serif;">More</span></ion-icon>
 	  </button>
-	   <ion-icon class="search_icon" ios="ios-search" md="md-search"></ion-icon>
+		 <ion-icon *ngIf="!toggled_search" (click)="toggleSearch()" class="search_icon" ios="ios-search" md="md-search"></ion-icon>
+		 <ion-searchbar
+       *ngIf="toggled_search"
+       [(ngModel)]="someValue"
+       (ionInput)="searchThis($event)"
+       (ionCancel)="cancelSearch($event)"
+       (ionClear) = "cancelSearch($event)"
+       [showCancelButton]="true">
+    </ion-searchbar>
 	 </ion-col>
    </ion-row>
  </ion-header>

@@ -12,7 +12,8 @@
 
     <ion-row class="category_items" *ngFor="let result of results">
       <ion-col col-auto>
-        <div class="circle"><img src="{{serverurl}}/{{result.profile_image}}"></div>
+        <div class="circle" *ngIf="result.profile_image"><img src="{{serverurl}}/{{result.profile_image}}"></div>
+        <div class="circle" *ngIf="!result.profile_image"><img src="../../assets/imgs/no-image.png"></div>
       </ion-col>
       <ion-col>
         <div class="title_desc">

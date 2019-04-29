@@ -3,6 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { CategoryLayoutPage } from '../category_layout/categoryLayout';
 import { Geolocation } from '@ionic-native/geolocation';
 import { UserService } from '../../app/user.service';
+import { LayoutPage } from '../layout/layout';
 
 declare var google;
 
@@ -96,4 +97,7 @@ export class MapPage {
 		this.loadMap(type);
 	}
 
+  gotoHome(){
+    this.navCtrl.push(LayoutPage);
+  }
 }

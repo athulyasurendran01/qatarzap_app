@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
+import { LayoutPage } from '../layout/layout';
 
 @Component({
   selector: 'page-about',
@@ -11,4 +12,7 @@ export class AboutPage {
 
   }
 
+  gotoHome(){
+    this.navCtrl.push(LayoutPage);
+  }
 }

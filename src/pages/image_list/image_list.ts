@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { App, NavController, NavParams } from 'ionic-angular';
 import { UserService } from '../../app/user.service';
 
 @Component({
@@ -10,7 +10,7 @@ export class ImageListPage implements OnInit{
 	
 	items: any = [];
 
-	constructor(private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {}
+	constructor(private app : App, private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {}
 
 	ngOnInit() {
 		this.UserService.apiTokenRequestGet('where_to_go', {})
@@ -19,4 +19,8 @@ export class ImageListPage implements OnInit{
 	    	this.items = data.data;
 	    });
 	}
+	goToDetail(item){
+		//this.app.getRootNav().push(CategoryLayoutPage, {category: item});
+	}
+	
 }

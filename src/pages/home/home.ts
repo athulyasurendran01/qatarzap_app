@@ -8,6 +8,7 @@ import { Explore } from '../explore/explore';
 import { ImageListPage } from '../image_list/image_list';
 import { Leisure } from '../leisure/leisure';
 import { QatarPage } from '../qatar/qatar';
+import { UserService } from '../../app/user.service';
 
 @Component({
   selector: 'page-home',
@@ -20,10 +21,14 @@ export class HomePage {
 
   pages: any=[];
   selectedTab = 0;
+  toggled_search: boolean = false;
+  searchInput: string = '';
  
   @ViewChild(SuperTabs) superTabs: SuperTabs;
 
-  constructor(private app : App, public navCtrl: NavController) {
+  constructor(private UserService: UserService, private app : App, public navCtrl: NavController) {
+    this.toggled_search = false;
+
     if((window.localStorage.language) && (window.localStorage.language != 'eng')){
       this.pages = [
           { pageName: Explore, title: 'استكشاف  ', id: 'exploreTab'},
@@ -41,12 +46,29 @@ export class HomePage {
     }
   }
 
+  toggleSearch(){
+    this.toggled_search = !this.toggled_search;
+  }
+
   onTabSelect(ev: any) {
     this.selectedTab = ev.index;
     this.superTabs.clearBadge(this.pages[ev.index].id);
   }
   gotoHome(){
     this.navCtrl.push(HomePage);
+  }
+  
+  searchThis(evt: any){
+    let input = this.searchInput;
+    this.UserService.apiTokenRequestGet('search-by-input/'+input, {})
+	    .map(res => res.json()).subscribe(data => {
+	    	console.log(data.data);
+    });
+
+  }
+
+  cancelSearch(evt: any){
+    this.searchInput = '';
   }
 
 }
