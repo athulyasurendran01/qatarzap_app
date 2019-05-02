@@ -5,6 +5,7 @@ import { CategoryDetailPage } from '../category-detail/category-detail';
 import { MapPage } from '../map/map';
 import { UserService } from '../../app/user.service';
 import { LayoutPage } from '../layout/layout';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'category-list',
@@ -54,6 +55,6 @@ export class CategoryPage implements OnInit{
   }
 
   gotoHome(){
-    this.navCtrl.push(LayoutPage);
+    this.navCtrl.push(HomePage);
   }
 }

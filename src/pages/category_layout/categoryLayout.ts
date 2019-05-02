@@ -39,7 +39,7 @@ export class CategoryLayoutPage implements OnInit{
         if(category.title===this_.category){
           this_.selectedTab = category.index;
           this_.superTabs.slideTo(this_.selectedTab);
-        }      
+        }
       });
     }, 600);
   }

@@ -13,6 +13,11 @@ import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms'
   templateUrl: 'profile.html'
 })
 export class ProfilePage {
+  businessForm: FormGroup;
+  personalForm: FormGroup;
+  passwordForm: FormGroup;
+  
+
   profile: boolean = true;
   list: boolean = false;
   password: boolean = false;
@@ -21,7 +26,8 @@ export class ProfilePage {
   userid: string;
   personal_details: any;
   business_lists: any;
-  business: {
+  business: any = {
+    id: '',
     name: '',
     description: '',
     category: '',
@@ -50,7 +56,7 @@ export class ProfilePage {
   footerScrollConfig: ScrollHideConfig = { cssProperty: 'margin-bottom', maxValue: 70 };
   headerScrollConfig: ScrollHideConfig = { cssProperty: 'margin-top', maxValue: 70 };
 
-  constructor(private UserService: UserService, public navCtrl: NavController, 
+  constructor(public formBuilder: FormBuilder, private UserService: UserService, public navCtrl: NavController, 
     public navParams: NavParams, private transfer: FileTransfer, private camera: Camera) {
       
     this.serverurl = this.UserService.getServerURL();
@@ -70,6 +76,102 @@ export class ProfilePage {
 		error => {
 			alert(error);
     });
+  }
+  
+  ngOnInit() {
+    this.personalForm = this.formBuilder.group({
+      name: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+      ])),
+      phone: new FormControl('', Validators.required),
+      company: new FormControl('', Validators.required),
+      designation: new FormControl('', Validators.required),
+      alteremail: new FormControl('', Validators.compose([
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+      ]))
+    });
+
+    this.businessForm = this.formBuilder.group({
+      id: new FormControl(''),
+      business_name: new FormControl('', Validators.required),
+      description: new FormControl('', Validators.required),
+      category: new FormControl('', Validators.required),
+      location: new FormControl('', Validators.required),
+      phone: new FormControl('', Validators.required),
+      tagline: new FormControl('', Validators.required),
+      website: new FormControl('', Validators.required),
+      mail: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')
+      ])),
+      facebook: new FormControl(''),
+      instagram: new FormControl(''),
+      linkedin: new FormControl(''),
+      twitter: new FormControl(''),
+      youtube: new FormControl('')
+    });
+
+    this.passwordForm = this.formBuilder.group({
+      oldpassword: new FormControl('', Validators.required),
+      newpassword: new FormControl('', Validators.required),
+      confirmpassword: new FormControl('', Validators.required)
+    });
+
+  }
+  
+  validation_messages = {
+    'name': [
+      { type: 'required', message: 'Name is required.' }
+    ],
+    'email': [
+      { type: 'required', message: 'Email is required.' },
+      { type: 'pattern', message: 'Please enter a valid email.' }
+    ],
+    'phone': [
+      { type: 'required', message: 'Phone is required.' }
+    ],
+    'company': [
+      { type: 'required', message: 'Company is required.' }
+    ],
+    'designation': [
+      { type: 'required', message: 'Designation is required.' }
+    ],
+    'alteremail': [
+      { type: 'pattern', message: 'Please enter a valid email.' }
+    ],
+    'business_name': [
+      { type: 'required', message: 'Business Name is required.' }
+    ],
+    'description': [
+      { type: 'required', message: 'Description is required.' }
+    ],
+    'category': [
+      { type: 'required', message: 'Category is required.' }
+    ],
+    'location': [
+      { type: 'required', message: 'Location is required.' }
+    ],
+    'tagline': [
+      { type: 'required', message: 'TagLine is required.' }
+    ],
+    'website': [
+      { type: 'required', message: 'Website is required.' }
+    ],
+    'mail': [
+      { type: 'required', message: 'Mail is required.' },
+      { type: 'pattern', message: 'Please enter a valid email.' }
+    ],
+    'oldpassword': [
+      { type: 'required', message: 'Ols Password is required.' }
+    ],
+    'newpassword': [
+      { type: 'required', message: 'New Password is required.' }
+    ],
+    'confirmpassword': [
+      { type: 'required', message: 'Confirm Password  is required.' }
+    ]
   }
 
   updateProfile(form) {
@@ -118,7 +220,6 @@ export class ProfilePage {
   }
 
   saveBusiness(form){
-    console.log()
     if(form.value.id){
       var id = form.value.id;
       this.UserService.apiTokenRequest('edit-business/'+id, {})

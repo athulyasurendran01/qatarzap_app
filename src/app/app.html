@@ -8,7 +8,7 @@
       <ion-title>More</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content>
+  <ion-content id="sidemenu_bar">
     <ion-list class="menu_list">
         <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
           <ion-icon class="menu_icon" name="{{p.icon}}"></ion-icon>

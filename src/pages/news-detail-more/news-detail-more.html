@@ -27,10 +27,11 @@
           <h4>Related News</h4>
         </ion-col>
       </ion-row>
+      
       <ion-row>
-          <ion-col><img src="./assets/imgs/guppi6.jpg"></ion-col>
-          <ion-col><img src="./assets/imgs/guppi6.jpg"></ion-col>
-          <ion-col><img src="./assets/imgs/guppi6.jpg"></ion-col>
+          <ion-col col-4 *ngFor="let news of releatednews">
+            <img src="./assets/imgs/guppi6.jpg">
+          </ion-col>
       </ion-row>
     </div>
     <br/>

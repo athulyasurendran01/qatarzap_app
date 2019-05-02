@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { App, NavController, NavParams } from 'ionic-angular';
 import { UserService } from '../../app/user.service';
+import { CategoryLayoutPage } from '../category_layout/categoryLayout';
 
 @Component({
   selector: 'image-list',
@@ -20,7 +21,7 @@ export class ImageListPage implements OnInit{
 	    });
 	}
 	goToDetail(item){
-		//this.app.getRootNav().push(CategoryLayoutPage, {category: item});
+		this.app.getRootNav().push(CategoryLayoutPage, {category: item});
 	}
 	
 }

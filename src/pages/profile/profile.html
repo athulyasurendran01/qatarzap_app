@@ -39,33 +39,80 @@
   <div class="news_content" *ngIf="profile">
     <ion-card-title class="title_head left_"> My Profile Information </ion-card-title>
     <ion-card-content>
-          <form #form="ngForm" (ngSubmit)="updateProfile(form)" novalidate *ngIf="personal_details">
+          <form [formGroup]="personalForm" (ngSubmit)="updateProfile(personalForm)" novalidate *ngIf="personal_details">
               <ion-item>
-                  <ion-label>Contact Name</ion-label>
-                  <ion-input type="text" name="name" required [(ngModel)]="personal_details.name" ngControl="name"></ion-input>
+                <ion-label position="floating" color="primary">Contact Name<span class="error-message">*</span></ion-label>
+                <ion-input type="text" formControlName="name" [(ngModel)]="personal_details.name"></ion-input>
               </ion-item>
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.name">
+                  <div class="error-message" *ngIf="personalForm.get('name').hasError(validation.type) && (personalForm.get('name').dirty || personalForm.get('name').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+
               <ion-item>
-                  <ion-label>Email Address</ion-label>
-                  <ion-input type="text" name="email" required [(ngModel)]="personal_details.email" ngControl="email"></ion-input>
-              </ion-item>
+                  <ion-label position="floating" color="primary">Email Address<span class="error-message">*</span></ion-label>
+                  <ion-input type="text" formControlName="email" [(ngModel)]="personal_details.email"></ion-input>
+                </ion-item>
+                <div class="validation-errors">
+                  <ng-container *ngFor="let validation of validation_messages.email">
+                    <div class="error-message" *ngIf="personalForm.get('email').hasError(validation.type) && (personalForm.get('email').dirty || personalForm.get('email').touched)">
+                      <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                    </div>
+                  </ng-container>
+                </div>
+
+                <ion-item>
+                    <ion-label position="floating" color="primary">Mobile Number<span class="error-message">*</span></ion-label>
+                    <ion-input type="text" formControlName="phone" [(ngModel)]="personal_details.phone"></ion-input>
+                  </ion-item>
+                  <div class="validation-errors">
+                    <ng-container *ngFor="let validation of validation_messages.phone">
+                      <div class="error-message" *ngIf="personalForm.get('phone').hasError(validation.type) && (personalForm.get('phone').dirty || personalForm.get('phone').touched)">
+                        <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                      </div>
+                    </ng-container>
+                  </div>
+
+                  <ion-item>
+                      <ion-label position="floating" color="primary">Company Name<span class="error-message">*</span></ion-label>
+                      <ion-input type="text" formControlName="company" [(ngModel)]="personal_details.company"></ion-input>
+                    </ion-item>
+                    <div class="validation-errors">
+                      <ng-container *ngFor="let validation of validation_messages.company">
+                        <div class="error-message" *ngIf="personalForm.get('company').hasError(validation.type) && (personalForm.get('company').dirty || personalForm.get('company').touched)">
+                          <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                        </div>
+                      </ng-container>
+                    </div>
+
+                    <ion-item>
+                        <ion-label position="floating" color="primary">Designation<span class="error-message">*</span></ion-label>
+                        <ion-input type="text" formControlName="designation" [(ngModel)]="personal_details.designation"></ion-input>
+                      </ion-item>
+                      <div class="validation-errors">
+                        <ng-container *ngFor="let validation of validation_messages.designation">
+                          <div class="error-message" *ngIf="personalForm.get('designation').hasError(validation.type) && (personalForm.get('designation').dirty || personalForm.get('designation').touched)">
+                            <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                          </div>
+                        </ng-container>
+                      </div>
+
+                      <ion-item>
+                          <ion-label position="floating" color="primary">Alternate Email Address</ion-label>
+                          <ion-input type="text" formControlName="alteremail" [(ngModel)]="personal_details.alteremail"></ion-input>
+                        </ion-item>
+                        <div class="validation-errors">
+                          <ng-container *ngFor="let validation of validation_messages.alteremail">
+                            <div class="error-message" *ngIf="personalForm.get('alteremail').hasError(validation.type) && (personalForm.get('alteremail').dirty || personalForm.get('alteremail').touched)">
+                              <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                            </div>
+                          </ng-container>
+                        </div>
               <ion-item>
-                  <ion-label>Mobile Number</ion-label>
-                  <ion-input type="text" name="phone" required [(ngModel)]="personal_details.phone" ngControl="phone"></ion-input>
-              </ion-item>
-              <ion-item>
-                  <ion-label>Company Name</ion-label>
-                  <ion-input type="text" name="company" required [(ngModel)]="personal_details.company" ngControl="company"></ion-input>
-              </ion-item>
-              <ion-item>
-                  <ion-label>Designation</ion-label>
-                  <ion-input type="text" name="designation" required [(ngModel)]="personal_details.designation" ngControl="designation"></ion-input>
-              </ion-item>
-              <ion-item>
-                  <ion-label>Alternate Email Address</ion-label>
-                  <ion-input type="text" name="alteremail" required [(ngModel)]="personal_details.alteremail" ngControl="alteremail"></ion-input>
-              </ion-item>
-              <ion-item>
-                <button ion-button type="submit" block>Update</button>
+                <button ion-button type="submit" block [disabled]="!personalForm.valid">Update</button>
               </ion-item>
           </form>
     </ion-card-content>
@@ -75,68 +122,186 @@
     <div *ngIf="newlist">
       <button class="btn post_business" ion-button (click)="viewList()">View List</button>
       <ion-card-title class="title_head"> Add Your New Business </ion-card-title>
-      <form #businessform="ngForm" (ngSubmit)="saveBusiness(businessform)" novalidate>
-          <input type="hidden" name="id" [(ngModel)]="business.id" >
-        <ion-item>
-          <ion-label>Company Name</ion-label>
-          <ion-input type="text" name="name" required [(ngModel)]="business.name"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Company Description</ion-label>
-          <ion-input type="text" name="description" required [(ngModel)]="business.description"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Company Category</ion-label>
-          <ion-input type="text" name="category" required [(ngModel)]="business.category"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Company Location</ion-label>
-          <ion-input type="text" name="location" required [(ngModel)]="business.location"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Company Phone Number</ion-label>
-          <ion-input type="text" name="phone" required [(ngModel)]="business.phone"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Company Tagline</ion-label>
-          <ion-input type="text" name="tagline" required [(ngModel)]="business.tagline"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Company Website</ion-label>
-          <ion-input type="text" name="website" required [(ngModel)]="business.website"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Company Mail</ion-label>
-          <ion-input type="text" name="mail" required [(ngModel)]="business.mail"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Facebook</ion-label>
-          <ion-input type="text" name="facebook" required [(ngModel)]="business.facebook"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Instagram</ion-label>
-          <ion-input type="text" name="instagram" required [(ngModel)]="business.instagram"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Linkedin</ion-label>
-          <ion-input type="text" name="linkedin" required [(ngModel)]="business.linkedin"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Twitter</ion-label>
-          <ion-input type="text" name="twitter" required [(ngModel)]="business.twitter"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label>Youtube</ion-label>
-          <ion-input type="text" name="youtube" required [(ngModel)]="business.youtube"></ion-input>
-        </ion-item>
+      <form [formGroup]="businessForm" (ngSubmit)="saveBusiness(businessForm)" novalidate>
+          <!-- <input type="hidden" name="id" [(ngModel)]="business.id" > -->
+          <ion-input type="hidden" formControlName="id" [(ngModel)]="business.id"></ion-input>
+
+          <ion-item>
+              <ion-label position="floating" color="primary">Company Name<span class="error-message">*</span></ion-label>
+              <ion-input type="text" formControlName="business_name" [(ngModel)]="business.name"></ion-input>
+            </ion-item>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.business_name">
+                <div class="error-message" *ngIf="businessForm.get('business_name').hasError(validation.type) && (businessForm.get('business_name').dirty || businessForm.get('business_name').touched)">
+                  <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+
+            <ion-item>
+                <ion-label position="floating" color="primary">Company Description<span class="error-message">*</span></ion-label>
+                <ion-input type="text" formControlName="description" [(ngModel)]="business.description"></ion-input>
+              </ion-item>
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.description">
+                  <div class="error-message" *ngIf="businessForm.get('description').hasError(validation.type) && (businessForm.get('description').dirty || businessForm.get('description').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+
+            <ion-item>
+                <ion-label position="floating" color="primary">Company Category<span class="error-message">*</span></ion-label>
+                <ion-input type="text" formControlName="category" [(ngModel)]="business.category"></ion-input>
+              </ion-item>
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.category">
+                  <div class="error-message" *ngIf="businessForm.get('category').hasError(validation.type) && (businessForm.get('category').dirty || businessForm.get('category').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+
+              <ion-item>
+                <ion-label position="floating" color="primary">Company Location<span class="error-message">*</span></ion-label>
+                <ion-input type="text" formControlName="location" [(ngModel)]="business.location"></ion-input>
+              </ion-item>
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.location">
+                  <div class="error-message" *ngIf="businessForm.get('location').hasError(validation.type) && (businessForm.get('location').dirty || businessForm.get('location').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+
+              <ion-item>
+                <ion-label position="floating" color="primary">Company Phone Number<span class="error-message">*</span></ion-label>
+                <ion-input type="text" formControlName="phone" [(ngModel)]="business.phone"></ion-input>
+              </ion-item>
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.phone">
+                  <div class="error-message" *ngIf="businessForm.get('phone').hasError(validation.type) && (businessForm.get('phone').dirty || businessForm.get('phone').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+
+              <ion-item>
+                <ion-label position="floating" color="primary">Company Tagline<span class="error-message">*</span></ion-label>
+                <ion-input type="text" formControlName="tagline" [(ngModel)]="business.tagline"></ion-input>
+              </ion-item>
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.tagline">
+                  <div class="error-message" *ngIf="businessForm.get('tagline').hasError(validation.type) && (businessForm.get('tagline').dirty || businessForm.get('tagline').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+
+              <ion-item>
+                <ion-label position="floating" color="primary">Company Website<span class="error-message">*</span></ion-label>
+                <ion-input type="text" formControlName="website" [(ngModel)]="business.website"></ion-input>
+              </ion-item>
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.website">
+                  <div class="error-message" *ngIf="businessForm.get('website').hasError(validation.type) && (businessForm.get('website').dirty || businessForm.get('website').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+
+              <ion-item>
+                <ion-label position="floating" color="primary">Company Mail<span class="error-message">*</span></ion-label>
+                <ion-input type="text" formControlName="mail" [(ngModel)]="business.mail"></ion-input>
+              </ion-item>
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.mail">
+                  <div class="error-message" *ngIf="businessForm.get('mail').hasError(validation.type) && (businessForm.get('mail').dirty || businessForm.get('mail').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+
+              <ion-item>
+                <ion-label position="floating" color="primary">Facebook</ion-label>
+                <ion-input type="text" formControlName="facebook" [(ngModel)]="business.facebook"></ion-input>
+              </ion-item>
+              <!-- <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.facebook">
+                  <div class="error-message" *ngIf="businessForm.get('facebook').hasError(validation.type) && (businessForm.get('facebook').dirty || businessForm.get('facebook').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div> -->
+              
+              <ion-item>
+                <ion-label position="floating" color="primary">Instagram</ion-label>
+                <ion-input type="text" formControlName="instagram" [(ngModel)]="business.instagram"></ion-input>
+              </ion-item>
+              <!-- <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.instagram">
+                  <div class="error-message" *ngIf="businessForm.get('instagram').hasError(validation.type) && (businessForm.get('instagram').dirty || businessForm.get('instagram').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div> -->
+
+              <ion-item>
+                <ion-label position="floating" color="primary">Linkedin</ion-label>
+                <ion-input type="text" formControlName="linkedin" [(ngModel)]="business.linkedin"></ion-input>
+              </ion-item>
+              <!-- <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.linkedin">
+                  <div class="error-message" *ngIf="businessForm.get('linkedin').hasError(validation.type) && (businessForm.get('linkedin').dirty || businessForm.get('linkedin').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div> -->
+
+              <ion-item>
+                <ion-label position="floating" color="primary">Twitter</ion-label>
+                <ion-input type="text" formControlName="twitter" [(ngModel)]="business.twitter"></ion-input>
+              </ion-item>
+              <!-- <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.twitter">
+                  <div class="error-message" *ngIf="businessForm.get('twitter').hasError(validation.type) && (businessForm.get('twitter').dirty || businessForm.get('twitter').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div> -->
+
+              <ion-item>
+                <ion-label position="floating" color="primary">Youtube</ion-label>
+                <ion-input type="text" formControlName="youtube" [(ngModel)]="business.youtube"></ion-input>
+              </ion-item>
+              <!-- <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.youtube">
+                  <div class="error-message" *ngIf="businessForm.get('youtube').hasError(validation.type) && (businessForm.get('youtube').dirty || businessForm.get('youtube').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div> -->
+
+              <ion-item>
+                <ion-label position="floating" color="primary">Youtube</ion-label>
+                <ion-input type="text" formControlName="youtube" [(ngModel)]="business.youtube"></ion-input>
+              </ion-item>
+              <!-- <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.youtube">
+                  <div class="error-message" *ngIf="businessForm.get('youtube').hasError(validation.type) && (businessForm.get('youtube').dirty || businessForm.get('youtube').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div> -->
+        <!--
         <ion-item>
           <button ion-button type="button" (click)="upload('company_pic')" block>Upload Profile Picture</button>
         </ion-item>
         <ion-item>
           <button ion-button type="button" (click)="upload('background_pic')" block>Upload Background Image</button>
-        </ion-item>
+        </ion-item> -->
         <ion-item>
-          <button ion-button type="submit" block>Submit</button>
+            <button ion-button type="submit" block [disabled]="!businessForm.valid">Submit</button>
         </ion-item>
       </form>
     </div>
@@ -176,8 +341,44 @@
   <div class="blog_content" *ngIf="password">
      <ion-card-title class="title_head left_"> Change Password </ion-card-title>
     <ion-card-content>
-      <form #changepasswordform="ngForm" (ngSubmit)="changePasswordForm(changepasswordform)" novalidate>
+      <form [formGroup]="passwordForm" (ngSubmit)="changePasswordForm(passwordForm)" novalidate>
+          <ion-item>
+              <ion-label position="floating" color="primary">Old Password<span class="error-message">*</span></ion-label>
+              <ion-input type="password" formControlName="oldpassword" [(ngModel)]="passwordform.oldpassword"></ion-input>
+            </ion-item>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.oldpassword">
+                <div class="error-message" *ngIf="passwordForm.get('oldpassword').hasError(validation.type) && (passwordForm.get('oldpassword').dirty || passwordForm.get('oldpassword').touched)">
+                  <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+
+            <ion-item>
+                <ion-label position="floating" color="primary">New Password<span class="error-message">*</span></ion-label>
+                <ion-input type="password" formControlName="newpassword" [(ngModel)]="passwordform.newpassword"></ion-input>
+              </ion-item>
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.newpassword">
+                  <div class="error-message" *ngIf="passwordForm.get('newpassword').hasError(validation.type) && (passwordForm.get('newpassword').dirty || passwordForm.get('newpassword').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+
               <ion-item>
+                <ion-label position="floating" color="primary">Confirm Password<span class="error-message">*</span></ion-label>
+                <ion-input type="password" formControlName="confirmpassword" [(ngModel)]="passwordform.confirmpassword"></ion-input>
+              </ion-item>
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.confirmpassword">
+                  <div class="error-message" *ngIf="passwordForm.get('confirmpassword').hasError(validation.type) && (passwordForm.get('confirmpassword').dirty || passwordForm.get('confirmpassword').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+
+              <!-- <ion-item>
                   <ion-label>Old Password</ion-label>
                   <ion-input type="password" name="oldpassword" required [(ngModel)]="passwordform.oldpassword"></ion-input>
               </ion-item>
@@ -188,9 +389,9 @@
               <ion-item>
                   <ion-label>Confirm Password</ion-label>
                   <ion-input type="password" name="confirmpassword" required [(ngModel)]="passwordform.confirmpassword"></ion-input>
-              </ion-item>
+              </ion-item> -->
               <ion-item>
-                <button ion-button type="submit" block>Submit</button>
+                  <button ion-button type="submit" block [disabled]="!passwordForm.valid">Submit</button>
               </ion-item>
       </form>
     </ion-card-content>

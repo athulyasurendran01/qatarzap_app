@@ -9,7 +9,8 @@ import { UserService } from '../../app/user.service';
 })
 export class NewsMorePage {
 	
-	newsdetail = [];
+	newsdetail: any;
+	releatednews: any;
 	news_id = '';
   serverurl = '';
 
@@ -19,10 +20,17 @@ export class NewsMorePage {
     	this.UserService.apiTokenRequestGet('getnewsbyId/'+this.news_id, {})
         	.map(res => res.json()).subscribe(data => {
           	this.newsdetail = data.data;
-      	});
-
+				});
+				
+				// Find Related News limit 3
+				this.UserService.apiTokenRequestGet('related-news/'+this.news_id, {})
+        	.map(res => res.json()).subscribe(data => {
+          	this.releatednews = data.data;
+				});
+				
   	}
 
+		
   	goToBack(){
 	  	this.navCtrl.push(CategoryLayoutPage);
 	  }

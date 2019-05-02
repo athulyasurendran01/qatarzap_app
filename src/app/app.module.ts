@@ -35,6 +35,8 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
 
 import { HttpModule } from '@angular/http';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 
 import { ScrollHideDirective } from './scroll-hide';
@@ -67,6 +69,7 @@ import { SuperTabsModule } from 'ionic2-super-tabs';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     HttpModule,
     IonicModule.forRoot(MyApp,{
     menuType: 'overlay',
