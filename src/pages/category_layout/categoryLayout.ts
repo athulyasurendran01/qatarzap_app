@@ -8,6 +8,7 @@ import { CategoryPage } from '../categories/category';
 import { NewsBlog } from '../news-blog/news-blog';
 import { UserService } from '../../app/user.service';
 import { SuperTabs } from 'ionic2-super-tabs';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'category-layout-list',
@@ -66,7 +67,7 @@ export class CategoryLayoutPage implements OnInit{
   }
 
   gotoHome(){
-    this.navCtrl.push(LayoutPage);
+    this.navCtrl.push(HomePage);
   }
 
   getMore(){

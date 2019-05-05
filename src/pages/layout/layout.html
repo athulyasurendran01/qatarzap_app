@@ -17,14 +17,15 @@
 	 </ion-col>
    </ion-row>
  </ion-header>
-
+ 
+<!-- 
 <ion-content #pageContent fullscreen>
 	<super-tabs tabsPlacement="top" toolbarBackground="secondary" toolbarColor="light" indicatorColor="light"
 	  (tabSelect)="onTabSelect($event)">
 		<super-tab *ngFor="let page of pages" [root]="page.pageName" [title]="page.title" [id]="page.id"></super-tab>
 	</super-tabs>
-</ion-content>
+</ion-content> -->
 
 <ion-footer (click)="gotoHome()" [scrollHide]="footerScrollConfig" [scrollContent]="pageContent">
-	<ion-icon name="recording"></ion-icon><span class="footer_class">Discover</span>
+	<span class="footer_class"><ion-icon name="recording"></ion-icon>Discover</span>
 </ion-footer>

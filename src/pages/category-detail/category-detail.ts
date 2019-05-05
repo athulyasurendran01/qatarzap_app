@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { App, NavController, NavParams } from 'ionic-angular';
 import { CategoryPage } from '../categories/category';
 import { UserService } from '../../app/user.service';
 import { LayoutPage } from '../layout/layout';
+import { MapPage } from '../map/map';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'category-detail-list',
@@ -16,7 +18,7 @@ export class CategoryDetailPage {
   hours: any;
   serverurl: string = '';
 
-  constructor(private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {
+  constructor(private app : App, private UserService: UserService, public navCtrl: NavController, public navParams: NavParams) {
     this.serverurl = this.UserService.getServerURL()+'/images/package/';
   	this.category = this.navParams.get("category"); 
     this.UserService.apiTokenRequestGet('category/'+this.category, {})
@@ -39,6 +41,10 @@ export class CategoryDetailPage {
   }
 
   gotoHome(){
-    this.navCtrl.push(LayoutPage);
+    this.navCtrl.push(HomePage);
+  }
+
+  goToMap(id){
+    this.app.getRootNav().push(MapPage, {category: id});
   }
 }

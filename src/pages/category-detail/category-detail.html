@@ -12,7 +12,7 @@
         <h2>{{categoryArray.title}}</h2>
         <h3>{{categoryArray.location}}</h3>
       </div>
-      <div class="direction_icon"><ion-icon ios="ios-pin" md="md-pin"></ion-icon>
+      <div  (click)="goToMap(categoryArray.id)" class="direction_icon"><ion-icon ios="ios-pin" md="md-pin"></ion-icon>
         <h2>Get Direction</h2>
       </div>
       <div [innerHTML]="categoryArray.description" class="description">

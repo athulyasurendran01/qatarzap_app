@@ -59,13 +59,16 @@ export class HomePage {
   }
   
   searchThis(evt: any){
-    let input = this.searchInput;
-    this.UserService.apiTokenRequestGet('search-by-input/'+input, {})
-	    .map(res => res.json()).subscribe(data => {
-	    	console.log(data.data);
-    });
-
+    
   }
+
+  // searchThis(evt: any){
+  //   let input = this.searchInput;
+  //   this.UserService.apiTokenRequestGet('search_by_input/'+input, {})
+	//     .map(res => res.json()).subscribe(data => {
+	//     	console.log(data.data);
+  //   });
+  // }
 
   cancelSearch(evt: any){
     this.searchInput = '';

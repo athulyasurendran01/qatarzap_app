@@ -16,7 +16,7 @@
         (ionClear) = "cancelSearch($event)"
         [showCancelButton]="true">
       </ion-searchbar>
-      <button ion-button left *ngIf="toggled_search" (click)="toggled_search = !toggled_search">
+      <button ion-button left *ngIf="toggled_search" class="cancel_btn" (click)="toggled_search = !toggled_search">
         Cancel
       </button>
     </div>

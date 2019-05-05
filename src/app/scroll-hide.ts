@@ -26,7 +26,8 @@ export class ScrollHideDirective {
                 if (this.config.maxValue === undefined) {
                     this.config.maxValue = this.element.nativeElement.offsetHeight;
                 }
-                this.lastScrollPosition = ev.scrollTop;
+                if(ev)
+                    this.lastScrollPosition = ev.scrollTop;
             });
             this.scrollContent.ionScroll.subscribe((ev) => this.adjustElementOnScroll(ev));
             this.scrollContent.ionScrollEnd.subscribe((ev) => this.adjustElementOnScroll(ev));

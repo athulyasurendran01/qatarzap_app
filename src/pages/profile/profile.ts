@@ -8,6 +8,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
+import { HomePage } from '../home/home';
 @Component({
   selector: 'profile-page',
   templateUrl: 'profile.html'
@@ -177,14 +178,16 @@ export class ProfilePage {
   updateProfile(form) {
     this.UserService.apiTokenRequest('update-profile/'+this.userid, form.value)
 	    .map(res => res.json()).subscribe(data => {
-        console.log(data)
+        if(data.response != 1){
+          alert("Sometging went wrong, Please check the input");
+        }
 	    },
 		error => {
-			alert(error);
+			alert("Sometging went wrong, Please check the input");
     });
   }
   gotoHome(){
-    this.navCtrl.push(LayoutPage);
+    this.navCtrl.push(HomePage);
   }
   activeProfile(){
     this.profile = true;

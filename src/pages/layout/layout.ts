@@ -8,6 +8,7 @@ import { Explore } from '../explore/explore';
 import { ImageListPage } from '../image_list/image_list';
 import { Leisure } from '../leisure/leisure';
 import { QatarPage } from '../qatar/qatar';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'app-layout',
@@ -49,7 +50,7 @@ export class LayoutPage {
   }
 
   gotoHome(){
-    this.navCtrl.push(LayoutPage);
+    this.navCtrl.push(HomePage);
   }
 
   toggleSearch(){

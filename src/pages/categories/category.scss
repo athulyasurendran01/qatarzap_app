@@ -40,13 +40,12 @@ category-list {
 
 	.category_items{
 	    border-bottom: 2px solid #999999;
-
 	    .col{
-    		padding: 1.5em 0.5em;
+			padding: 6px 10px;
 	    }
 	    .circle{
-		    height: 100px;
-		    width: 100px;
+		    height: 80px;
+		    width: 80px;
 		    background: #4D4D4D;
 		    border-radius: 50%;
 		    border: 1px solid #9E9E9E;
@@ -55,9 +54,10 @@ category-list {
 	        margin-bottom: 2px;
 			font-weight: 600;
 			margin-top: 0;
+			font-size: 18px;
 	    }
 	    h4{
-	    	margin-top: 0;
+	    	margin: 0;
 	    	font-size: 16px;
 	    }
 	    .title_desc{
@@ -70,10 +70,10 @@ category-list {
 			}
 	    }
 	    .arraow_location{
-	    	height: 60px;
-		    width: 60px;
+	    	height: 50px;
+		    width: 50px;
 		    background: #D6D4D5;
-		    bottom: -30px;
+		    bottom: -20px;
 		    position: absolute;
 		    right: 20px;
 		    border-radius: 50%;
@@ -81,7 +81,7 @@ category-list {
 		    
 		    .icon{
 			    margin: 10px;
-			    font-size: 36px;
+			    font-size: 25px;
 			    color: #46B1F2;
 			    transform: rotate(30deg);
 		    }

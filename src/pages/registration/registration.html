@@ -72,7 +72,7 @@
       <ion-col>
         <ion-list inset class="submit_section">
             <button ion-button class="login_btn" full type="submit" block [disabled]="!registerForm.valid">Submit</button>
-          <button ion-button class="login_btn" full type="buton">Reset</button>
+          <button ion-button class="login_btn" full type="buton" (click)="resetForm()">Reset</button>
         </ion-list>
       </ion-col>
     </ion-row>

@@ -30,7 +30,7 @@ super-tabs-container{
 }
 .search_box{
 	display: flex;
-	button{
+	.cancel_btn{
 		height: 42px;
     	margin-top: 8px;
 	}
@@ -49,6 +49,7 @@ super-tabs-container{
 	margin-bottom: 12px;
 	.search_icon{
 		float: right;
+		margin-top: 6px;
 	}
 }
 super-tabs-container{

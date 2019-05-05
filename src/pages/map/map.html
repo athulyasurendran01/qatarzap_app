@@ -1,4 +1,24 @@
-<ion-content>
+<!-- <ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent" style="padding: 10px 2em;">
+	<ion-row>
+	 <ion-col class="more_option">
+	   <button ion-button menuToggle left style="background: no-repeat;box-shadow: none;font-size: 20px;
+	 padding: 0;">
+		  <ion-icon name="more"><span style="font-family: sans-serif;">More</span></ion-icon>
+	  </button>
+		 <ion-icon *ngIf="!toggled_search" (click)="toggleSearch()" class="search_icon" ios="ios-search" md="md-search"></ion-icon>
+		 <ion-searchbar
+       *ngIf="toggled_search"
+       [(ngModel)]="someValue"
+       (ionInput)="searchThis($event)"
+       (ionCancel)="cancelSearch($event)"
+       (ionClear) = "cancelSearch($event)"
+       [showCancelButton]="true">
+    </ion-searchbar>
+	 </ion-col>
+   </ion-row>
+ </ion-header> -->
+ 
+ <ion-content>
   <ion-grid>
     <!-- <ion-row class="tab_title">
       <ion-col col-1>

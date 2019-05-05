@@ -4,6 +4,7 @@ import { NewsDetail } from '../news-detail/news-detail';
 //import { BlogDetailPage } from '../blog-detail/blog-detail';
 import { UserService } from '../../app/user.service';
 import { LayoutPage } from '../layout/layout';
+import { HomePage } from '../home/home';
 
 @Component({
   selector: 'news-blog-list',
@@ -43,6 +44,6 @@ export class NewsBlog {
     }
     
     gotoHome(){
-      this.navCtrl.push(LayoutPage);
+      this.navCtrl.push(HomePage);
     }
 }

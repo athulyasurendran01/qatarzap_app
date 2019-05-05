@@ -66,4 +66,8 @@ export class RegistrationPage {
   goBack(){
     this.navCtrl.pop();
   }
+
+  resetForm(){
+    this.registerForm.reset()
+  }
 }
