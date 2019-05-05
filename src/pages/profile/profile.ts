@@ -4,7 +4,7 @@ import { LayoutPage } from '../layout/layout';
 import { ScrollHideConfig } from '../../app/scroll-hide';
 import { UserService } from '../../app/user.service';
 
-import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
+import { Camera, CameraOptions } from '@ionic-native/camera';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
