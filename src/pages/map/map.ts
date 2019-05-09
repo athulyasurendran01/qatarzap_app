@@ -57,7 +57,7 @@ export class MapPage {
 
 	loadMap(type){
   		var directionsService = new google.maps.DirectionsService;
-        var directionsDisplay = new google.maps.DirectionsRenderer;
+			var directionsDisplay = new google.maps.DirectionsRenderer;
 
 	    let latLng = new google.maps.LatLng(25.354826, 51.183884);
 	 

@@ -139,6 +139,18 @@
             </div>
 
             <ion-item>
+              <ion-label position="floating" color="primary">Company Name (Arabic)<span class="error-message">*</span></ion-label>
+              <ion-input type="text" formControlName="business_name_arabic" [(ngModel)]="business.title_arabic"></ion-input>
+            </ion-item>
+            <div class="validation-errors">
+              <ng-container *ngFor="let validation of validation_messages.business_name_arabic">
+                <div class="error-message" *ngIf="businessForm.get('business_name_arabic').hasError(validation.type) && (businessForm.get('business_name_arabic').dirty || businessForm.get('business_name_arabic').touched)">
+                  <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                </div>
+              </ng-container>
+            </div>
+
+              <ion-item>
                 <ion-label position="floating" color="primary">Company Description<span class="error-message">*</span></ion-label>
                 <ion-input type="text" formControlName="description" [(ngModel)]="business.description"></ion-input>
               </ion-item>
@@ -150,7 +162,43 @@
                 </ng-container>
               </div>
 
-            <ion-item>
+              <ion-item>
+                <ion-label position="floating" color="primary">Company Description (Arabic)<span class="error-message">*</span></ion-label>
+                <ion-input type="text" formControlName="description_arabic" [(ngModel)]="business.description_arabic"></ion-input>
+              </ion-item>
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.description_arabic">
+                  <div class="error-message" *ngIf="businessForm.get('description_arabic').hasError(validation.type) && (businessForm.get('description_arabic').dirty || businessForm.get('description_arabic').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+
+              <ion-item>
+                <ion-label position="floating" color="primary">Company Tagline<span class="error-message">*</span></ion-label>
+                <ion-input type="text" formControlName="tagline" [(ngModel)]="business.tagline"></ion-input>
+              </ion-item>
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.tagline">
+                  <div class="error-message" *ngIf="businessForm.get('tagline').hasError(validation.type) && (businessForm.get('tagline').dirty || businessForm.get('tagline').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+
+              <ion-item>
+                <ion-label position="floating" color="primary">Company Tagline (Arabic)<span class="error-message">*</span></ion-label>
+                <ion-input type="text" formControlName="tagline_arabic" [(ngModel)]="business.tagline_arabic"></ion-input>
+              </ion-item>
+              <div class="validation-errors">
+                <ng-container *ngFor="let validation of validation_messages.tagline_arabic">
+                  <div class="error-message" *ngIf="businessForm.get('tagline_arabic').hasError(validation.type) && (businessForm.get('tagline_arabic').dirty || businessForm.get('tagline_arabic').touched)">
+                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
+                  </div>
+                </ng-container>
+              </div>
+
+              <ion-item>
                 <ion-label position="floating" color="primary">Company Category<span class="error-message">*</span></ion-label>
                 <ion-input type="text" formControlName="category" [(ngModel)]="business.category"></ion-input>
               </ion-item>
@@ -181,18 +229,6 @@
               <div class="validation-errors">
                 <ng-container *ngFor="let validation of validation_messages.phone">
                   <div class="error-message" *ngIf="businessForm.get('phone').hasError(validation.type) && (businessForm.get('phone').dirty || businessForm.get('phone').touched)">
-                    <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
-                  </div>
-                </ng-container>
-              </div>
-
-              <ion-item>
-                <ion-label position="floating" color="primary">Company Tagline<span class="error-message">*</span></ion-label>
-                <ion-input type="text" formControlName="tagline" [(ngModel)]="business.tagline"></ion-input>
-              </ion-item>
-              <div class="validation-errors">
-                <ng-container *ngFor="let validation of validation_messages.tagline">
-                  <div class="error-message" *ngIf="businessForm.get('tagline').hasError(validation.type) && (businessForm.get('tagline').dirty || businessForm.get('tagline').touched)">
                     <ion-icon name="information-circle-outline"></ion-icon> {{ validation.message }}
                   </div>
                 </ng-container>

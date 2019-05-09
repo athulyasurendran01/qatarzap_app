@@ -4,7 +4,7 @@ import { LayoutPage } from '../layout/layout';
 import { ScrollHideConfig } from '../../app/scroll-hide';
 import { UserService } from '../../app/user.service';
 
-import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Camera, CameraOptions } from '@ionic-native/camera/ngx';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer/ngx';
 
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
@@ -29,12 +29,15 @@ export class ProfilePage {
   business_lists: any;
   business: any = {
     id: '',
-    name: '',
+    business_name: '',
+    business_name_arabic: '',
     description: '',
+    description_arabic: '',
     category: '',
     location: '',
     phone: '',
     tagline: '',
+    tagline_arabic: '',
     website: '',
     mail: '',
     facebook: '',
@@ -97,11 +100,14 @@ export class ProfilePage {
     this.businessForm = this.formBuilder.group({
       id: new FormControl(''),
       business_name: new FormControl('', Validators.required),
+      business_name_arabic: new FormControl('', Validators.required),
       description: new FormControl('', Validators.required),
+      description_arabic: new FormControl('', Validators.required),
       category: new FormControl('', Validators.required),
       location: new FormControl('', Validators.required),
       phone: new FormControl('', Validators.required),
       tagline: new FormControl('', Validators.required),
+      tagline_arabic: new FormControl('', Validators.required),
       website: new FormControl('', Validators.required),
       mail: new FormControl('', Validators.compose([
         Validators.required,
@@ -145,8 +151,14 @@ export class ProfilePage {
     'business_name': [
       { type: 'required', message: 'Business Name is required.' }
     ],
+    'business_name_arabic': [
+      { type: 'required', message: 'Business Name (Arabic) is required.' }
+    ],
     'description': [
       { type: 'required', message: 'Description is required.' }
+    ],
+    'description_arabic': [
+      { type: 'required', message: 'Description (Arabic) is required.' }
     ],
     'category': [
       { type: 'required', message: 'Category is required.' }
@@ -156,6 +168,9 @@ export class ProfilePage {
     ],
     'tagline': [
       { type: 'required', message: 'TagLine is required.' }
+    ],
+    'tagline_arabic': [
+      { type: 'required', message: 'TagLine (Arabic) is required.' }
     ],
     'website': [
       { type: 'required', message: 'Website is required.' }
