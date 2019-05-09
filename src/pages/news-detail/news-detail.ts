@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
-import { CategoryLayoutPage } from '../category_layout/categoryLayout';
+import { NewsBlog } from '../news-blog/news-blog';
 import { NewsMorePage } from '../news-detail-more/news-detail-more';
 import { UserService } from '../../app/user.service';
 
@@ -24,8 +24,8 @@ export class NewsDetail {
       });
   	}
 
-  	goToBack(){
-	  	this.navCtrl.push(CategoryLayoutPage);
+  goToBack(){
+    this.navCtrl.push(NewsBlog);
 	}
 
 	newsReadMore(id){

@@ -1,5 +1,5 @@
-<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent" style="padding: 10px 2em;">
-	<ion-row>
+<ion-header [scrollHide]="headerScrollConfig" [scrollContent]="pageContent" style="padding:0!important">
+	<ion-row style="padding: 8px 2em !important;">
 	 <ion-col class="more_option">
 	   <button ion-button menuToggle left style="background: no-repeat;box-shadow: none;font-size: 20px;
 	 padding: 0;">
@@ -8,10 +8,8 @@
 	   <ion-icon class="search_icon" ios="ios-search" md="md-search"></ion-icon>
 	 </ion-col>
    </ion-row>
- </ion-header>
 
-<ion-content>
-  <ion-grid class="main_tab">
+   <ion-grid class="main_tab">
     <ion-row class="second_tab">
       <ion-col (click)="activeNews()" [ngClass]="(news)?'active':''">
         <span>NEWS</span>
@@ -21,6 +19,10 @@
       </ion-col>
     </ion-row>
   </ion-grid>
+ </ion-header>
+
+<ion-content>
+  
   <ion-grid>
     <div class="news_content" *ngIf="news">
       <ion-row>
@@ -45,7 +47,7 @@
           </div>
         </ion-col>
         <ion-col>
-          <img src="./assets/imgs/guppi6.jpg"/>
+          <img src="./assets/imgs/2.jpg"/>
         </ion-col>
       </ion-row>
       <ion-row (click)="blogDetail()">
@@ -63,7 +65,7 @@
           </div>
         </ion-col>
         <ion-col>
-          <img src="./assets/imgs/guppi6.jpg"/>
+          <img src="./assets/imgs/2.jpg"/>
         </ion-col>
       </ion-row>
       <ion-row (click)="blogDetail()">
@@ -81,7 +83,7 @@
           </div>
         </ion-col>
         <ion-col>
-          <img src="./assets/imgs/guppi6.jpg"/>
+          <img src="./assets/imgs/2.jpg"/>
         </ion-col>
       </ion-row>
     </div>

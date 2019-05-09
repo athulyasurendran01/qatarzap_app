@@ -3,13 +3,13 @@
   <ion-grid>
     <div class="news_details_content">
       <ion-row class="main_head">
-        <ion-col>
+        <ion-col *ngIf="newsdetail">
           <ion-icon class="back_btn" (click)="goToBack()" ios="ios-arrow-back" md="md-arrow-back"></ion-icon>
           <img src="{{serverurl}}{{newsdetail.image}}"/>         
           <div class="header_description">
             <div style="position: absolute;top: 145px; color: white;">
               <h2>{{newsdetail.title}}</h2>
-              <span>BY XXX | 1 HOUR AGO</span>
+              <span>BY XXX | {{hrs}} HOUR AGO</span>
             </div>
               <p>{{newsdetail.description}}</p>
           </div>
@@ -29,8 +29,8 @@
       </ion-row>
       
       <ion-row>
-          <ion-col col-4 *ngFor="let news of releatednews">
-            <img src="./assets/imgs/guppi6.jpg">
+          <ion-col col-4 *ngFor="let news of releatednews" class="related_news">
+            <img src="{{serverurl}}{{news.image}}">
           </ion-col>
       </ion-row>
     </div>
