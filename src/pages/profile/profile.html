@@ -126,7 +126,7 @@
           <!-- <input type="hidden" name="id" [(ngModel)]="business.id" > -->
           <ion-input type="hidden" formControlName="id" [(ngModel)]="business.id"></ion-input>
 
-          <ion-item>
+            <ion-item>
               <ion-label position="floating" color="primary">Company Name<span class="error-message">*</span></ion-label>
               <ion-input type="text" formControlName="business_name" [(ngModel)]="business.title"></ion-input>
             </ion-item>
@@ -210,10 +210,17 @@
                 </ng-container>
               </div>
 
-              <ion-item>
+              <!-- <ion-item>
                 <ion-label position="floating" color="primary">Company Location<span class="error-message">*</span></ion-label>
                 <ion-input type="text" formControlName="location" [(ngModel)]="business.location"></ion-input>
-              </ion-item>
+              </ion-item> -->
+              <ion-searchbar formControlName="location" [(ngModel)]="business.location" (ionInput)="updateSearchResults()" id="search_input"></ion-searchbar>
+
+              <ion-list [hidden]="autocompleteItems.length == 0">
+                <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+                  {{ item.description }}
+                </ion-item>
+              </ion-list>
               <div class="validation-errors">
                 <ng-container *ngFor="let validation of validation_messages.location">
                   <div class="error-message" *ngIf="businessForm.get('location').hasError(validation.type) && (businessForm.get('location').dirty || businessForm.get('location').touched)">

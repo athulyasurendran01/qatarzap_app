@@ -9,6 +9,8 @@ import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-nati
 
 import { Validators, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { HomePage } from '../home/home';
+
+declare var google;
 @Component({
   selector: 'profile-page',
   templateUrl: 'profile.html'
@@ -18,6 +20,11 @@ export class ProfilePage {
   personalForm: FormGroup;
   passwordForm: FormGroup;
   
+  GoogleAutocomplete : any;
+  autocomplete: any;
+  autocompleteItems: any;
+  zone:any;
+  geocoder:any;
 
   profile: boolean = true;
   list: boolean = false;
@@ -63,6 +70,11 @@ export class ProfilePage {
   constructor(public formBuilder: FormBuilder, private UserService: UserService, public navCtrl: NavController, 
     public navParams: NavParams, private transfer: FileTransfer, private camera: Camera) {
       
+    this.GoogleAutocomplete = new google.maps.places.AutocompleteService();
+    this.geocoder = new google.maps.Geocoder;
+    this.business = { location: '' };
+    this.autocompleteItems = [];
+    
     this.serverurl = this.UserService.getServerURL();
     this.userid = localStorage.getItem("userId");
     this.UserService.apiTokenRequestGet('user/'+this.userid, {})
@@ -189,6 +201,37 @@ export class ProfilePage {
       { type: 'required', message: 'Confirm Password  is required.' }
     ]
   }
+
+
+  selectSearchResult(item){
+    this.autocompleteItems = [];
+    this.business.location = item.description;
+  
+    this.geocoder.geocode({'placeId': item.place_id}, (results, status) => {
+      if(status === 'OK' && results[0]){
+        let position = {
+            lat: results[0].geometry.location.lat,
+            lng: results[0].geometry.location.lng
+        };
+      }
+    })
+  }
+
+
+  updateSearchResults(){
+    if (this.business.location == '') {
+      this.autocompleteItems = [];
+      return;
+    }
+    this.GoogleAutocomplete.getPlacePredictions({ input: this.business.location },
+    (predictions, status) => {
+      this.autocompleteItems = [];
+      predictions.forEach((prediction) => {
+        this.autocompleteItems.push(prediction);
+      });
+    });
+  }
+
 
   updateProfile(form) {
     this.UserService.apiTokenRequest('update-profile/'+this.userid, form.value)
